@@ -6,7 +6,7 @@
 <div class="page-breadcrumb bg-white">
     <div class="row align-items-center">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <span class="page-title">Sản phẩm<a href="{{'admin.product.create.index'}}" class="btn btn-success">Create new</a></span> 
+            <span class="page-title">Sản phẩm<a href="{{route('admin.product.create.index')}}" class="btn btn-success">Create new</a></span> 
         </div>
     </div>
     <!-- /.col-lg-12 -->
@@ -57,7 +57,7 @@
                    <td> {{$item->sku}}</td>
                    <td> {{$item->name}}</td>
                    <td> {{$item->stock}}</td>
-                   <td> {{$item->price}}</td>
+                   <td> ${{$item->price}}</td>
                    <td> {{$item->description}}</td>
                   
                    <td> <img src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
@@ -65,10 +65,10 @@
                    <td> {{$item->unit}}</td>
                    <td> {{$item->status}}</td>
                    <td>
-                        <a class="btn btn-success" >Edit</a>
+                        <a class="btn btn-success" href="" >Edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-danger" href="{{route('admin.product.delete',$item->id)}}">Delete</a>
                     </td>
                 </tr>    
                 @endforeach           

@@ -5,7 +5,7 @@
 <form action="{{route('admin.product.create')}}" method="POST" role="form">
 @csrf
   <div class="mb-3 mt-3">
-    <label for="name" class="form-label">Tên sản phẩm:</label>
+    <label for="name" class="form-label">Tên đăng nhập:</label>
     <input type="text" class="form-control" id="name" placeholder="Enter tên sản phẩm" name="name" required>
   </div>
   <div class="mb-3">

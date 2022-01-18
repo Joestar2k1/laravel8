@@ -26,6 +26,8 @@ Route::group(['prefix' => '/'], function () {
             name('admin.product.create.index');
             Route::post('/create', [ProductController::class, 'createProduct'])->
             name('admin.product.create');
+            Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
+            name('admin.product.delete');
        });
     });
   
