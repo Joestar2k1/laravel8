@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 class Product extends Seeder
 {
     /**
@@ -15,20 +16,20 @@ class Product extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            [  
-                'id'=>  'f23112001pr0',
+            [
+                'id' =>  'f23112001pr0',
                 'sku' => Str::random(10),
                 'name' => 'Dâu tằm',
                 'price' =>  3,
                 'stock' => 120,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
-                 'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
-                 'image' => '1.png',
+                'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
+                'image' => '1.png',
                 'status' => true,
-            ]
-            ,
-            [  'id'=>  'f23112001pr1',
+            ],
+            [
+                'id' =>  'f23112001pr1',
                 'sku' =>  Str::random(10),
                 'name' => 'Rau salad',
                 'price' =>  1,
@@ -39,7 +40,8 @@ class Product extends Seeder
                 'image' => '7.png',
                 'status' => true,
             ],
-            [  'id'=>  'f23112001pr2',
+            [
+                'id' =>  'f23112001pr2',
                 'sku' =>  Str::random(10),
                 'name' => 'Nước suối',
                 'price' =>  2,
@@ -50,7 +52,8 @@ class Product extends Seeder
                 'image' => '8.png',
                 'status' => true,
             ],
-            [ 'id'=> 'f23112001pr3',
+            [
+                'id' => 'f23112001pr3',
                 'sku' =>  Str::random(10),
                 'name' => 'Kiwi',
                 'price' =>  10,
@@ -61,7 +64,8 @@ class Product extends Seeder
                 'image' => '3.png',
                 'status' => true,
             ],
-            [ 'id'=> 'f23112001pr4',
+            [
+                'id' => 'f23112001pr4',
                 'sku' =>  Str::random(10),
                 'name' => 'Cam mỹ',
                 'price' =>  30,
@@ -72,8 +76,9 @@ class Product extends Seeder
                 'image' => '4.png',
                 'status' => true,
             ],
-            
-            [ 'id'=> 'f23112001pr5',
+
+            [
+                'id' => 'f23112001pr5',
                 'sku' =>  Str::random(10),
                 'name' => 'Thịt bò',
                 'price' =>  5,
@@ -83,8 +88,9 @@ class Product extends Seeder
                 'description' => 'Giàu protein, giúp cơ thể phát triển tốt',
                 'image' => '9.png',
                 'status' => true,
-        ],
-            [ 'id'=>  'f23112001pr6',
+            ],
+            [
+                'id' =>  'f23112001pr6',
                 'sku' =>  Str::random(10),
                 'name' => 'Nho nhật',
                 'price' =>  20,
@@ -95,7 +101,8 @@ class Product extends Seeder
                 'image' => '5.png',
                 'status' => true,
             ],
-            [ 'id'=>  'f23112001pr7',
+            [
+                'id' =>  'f23112001pr7',
                 'sku' => Str::random(10),
                 'name' => 'Dâu tây',
                 'price' =>  20,
@@ -106,17 +113,18 @@ class Product extends Seeder
                 'image' => '6.png',
                 'status' => true,
             ],
-            [ 'id'=> 'f23112001pr8',
-            'sku' => Str::random(10),
-            'name' => 'Táo mỹ',
-            'price' =>  5,
-            'stock' => 30,
-            'type' => 'Trái cây',
-            'unit' => 'Kg',
-            'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
-            'image' => '2.png',
-            'status' => true,
-        ],
+            [
+                'id' => 'f23112001pr8',
+                'sku' => Str::random(10),
+                'name' => 'Táo mỹ',
+                'price' =>  5,
+                'stock' => 30,
+                'type' => 'Trái cây',
+                'unit' => 'Kg',
+                'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
+                'image' => '2.png',
+                'status' => true,
+            ],
         ]);
     }
 }

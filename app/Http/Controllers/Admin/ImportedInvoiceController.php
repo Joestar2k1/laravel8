@@ -3,30 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ImportedInvoice;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-use App\Models\Product;
-
-class ProductController extends Controller
+class ImportedInvoiceController extends Controller
 {
-    public function loadProduct()
-    {
-        $data = DB::table('products')->paginate(4);
-        return view('admin.products.index', compact('data'));
+    public function show(){
+        return View('admin.imported_invoice.index');
     }
 
-    public function viewCreate()
-    {
-        return view('admin.products.create');
+    public function createView(){
+        return view('admin.imported_invoice.create');
     }
 
-    public function createProduct(Request $request)
+    public function create(Request $request)
     {
-        $countPrd = Product::all()->count();
+        $countPrd = ImportedInvoice::all()->count();
         $randomID = 'f23112001pr' .  $countPrd;
 
-        $products = new Product;
+        $products = new ImportedInvoice;
 
         $products->id = $randomID;
         $products->sku = $request->sku;
@@ -39,6 +34,6 @@ class ProductController extends Controller
         $products->unit = $request->unit;
         $products->status = $request->status;
         $products->save();
-        return view('admin.product', compact('data'));
+        return view('admin.imported_invoice', compact('data'));
     }
 }
