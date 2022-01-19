@@ -16,6 +16,10 @@ class ImportedInvoiceController extends Controller
         return view('admin.imported_invoice.create');
     }
 
+    public function createDetailView(){
+        return View('admin.imported_invoice.create_detail');
+    }
+
     public function create(Request $request)
     {
         $countPrd = ImportedInvoice::all()->count();
