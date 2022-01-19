@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -32,7 +33,8 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'))) {
-            return redirect()->intended(route('admin.dashboard'));
+            $infoUser = DB::table('users')->where('email',$request->email)->get();
+            return redirect()->intended(route('admin.dashboard',['users'=>$infoUser]));
         }
         return back()->withInput($request->only('email', 'remember'));
     }
