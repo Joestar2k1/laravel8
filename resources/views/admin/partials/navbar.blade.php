@@ -9,7 +9,7 @@
    </div>
    <ul class="app-menu">
      <li>
-       <a class="app-menu__item active" href="index-2.html">
+       <a class="app-menu__item active" href="{{route('admin.dashboard')}}">
          <i class="app-menu__icon fas fa-home"></i>
          <span class="app-menu__label">Dashboard</span>
         </a>

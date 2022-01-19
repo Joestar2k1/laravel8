@@ -9,10 +9,9 @@
         <a href="{{route('admin.product.create.index')}}" class="btn btn-success">Tạo sản phẩm</a>
     </div>
     <div class="col-sm-4 text-white"> 
-        <form class="d-flex" method="GET" role="form" >
-            @csrf
-            <input class="form-control me-2" id="keyWord" name="keyWord"type="text" placeholder="Search">
-            <button class="btn btn-primary" type="button">Tìm kiếm</button>
+        <form class="d-flex" method="GET" action= "{{route('admin.product.search')}}" >     
+            <input class="form-control me-2"  name="keyWord" type="text" placeholder="Search">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
         </form>
     </div>
     <div class="col-sm-4 text-white"> 
