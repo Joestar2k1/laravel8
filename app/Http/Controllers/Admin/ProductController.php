@@ -66,13 +66,13 @@ class ProductController extends Controller
         }      
     }
 
-    public function search($keyWord){
-        if($keyWord!=null){
-            $products = Product::where('name',$keyWord);
-            return view('admin.products.index',compact('products'));
-        }else{
-            $data =DB::table('products')->paginate(4);  
+    public function Search(Request $request){
+        if(isset($_GET['keyWord'])){
+            $searchText = $_GET['keyWord'];
+            $data = DB::table('products')->where('name','LIKE','%'.$searchText.'%')->paginate(2);
             return view('admin.products.index',compact('data'));
+        }else{
+            return view('admin.dashboard');
         }
     }
 }
