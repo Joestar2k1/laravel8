@@ -15,10 +15,7 @@
     <div class="container mt-3">
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>
-                        Mã sản phẩm
-                    </th> 
+                <tr>                 
                     <th>
                         Tên sản phẩm
                     </th>   
@@ -54,13 +51,12 @@
             <tbody>   
                 @foreach($data as $item)
                 <tr>                        
-                   <td> {{$item->sku}}</td>
                    <td> {{$item->name}}</td>
                    <td> {{$item->stock}}</td>
                    <td> ${{$item->price}}</td>
                    <td> {{$item->description}}</td>
                   
-                   <td> <img src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
+                   <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
                    <td> {{$item->type}}</td>
                    <td> {{$item->unit}}</td>
                    <td> {{$item->status}}</td>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\InvoiceController;
 use Illuminate\Support\Facades\Auth;
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [LoginController::class,'loginForm'])->name('admin.login.get');
@@ -29,6 +30,17 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
             name('admin.product.delete');
        });
+
+       Route::group(['prefix' => '/invoices'], function () {
+        Route::get('/', [InvoiceController::class, 'showInvoice'])->
+        name('admin.invoices');
+        Route::get('/create', [ProductController::class, 'viewCreate'])->
+        name('admin.product.create.index');
+        Route::post('/create', [ProductController::class, 'createProduct'])->
+        name('admin.product.create');
+        Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
+        name('admin.product.delete');
+        });
     });
   
 });
