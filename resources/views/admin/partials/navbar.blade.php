@@ -37,6 +37,5 @@
        <span class="app-menu__label">Hóa đơn</span>
       </a>
       </li> 
-   </ul>
-   
+   </ul>  
  </aside>

@@ -40,8 +40,15 @@ class ProductController extends Controller
         return view('admin.products.create',compact('data'));
     }
     public function createProduct(Request $request){
-        $countPrd = Product::all()->count();
-        $date = Date('Y m d');
+         $countPrd = Product::all()->count();
+        if($request->has('image')){
+            $file= $request->image;
+            $ext = $request->image->extension();//lấy đuôi file png||jpg
+            $file_name = Date('Ymd').'-'.'product'.$countPrd.$ext;
+            $file->move(public_path('backend/assets/img/products'),$file_name);
+        }
+  
+        $date = Date('Ymd');
         $randomID = 'f'.$date .'pr' . $countPrd;
         $products = new Product;
         
@@ -51,7 +58,7 @@ class ProductController extends Controller
         $products->stock = $request->stock;
         $products->price = $request->price;
         $products->type = $request->type;
-        $products->image = "";
+        $products->image = $file_name;
         $products->unit = $request->unit;
         $products->status = 1; 
         $products->save();

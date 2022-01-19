@@ -43,12 +43,12 @@ Route::group(['prefix' => '/'], function () {
        Route::group(['prefix' => '/invoices'], function () {
         Route::get('/', [InvoiceController::class, 'showInvoice'])->
         name('admin.invoices');
-        Route::get('/create', [ProductController::class, 'viewCreate'])->
-        name('admin.product.create.index');
-        Route::post('/create', [ProductController::class, 'createProduct'])->
-        name('admin.product.create');
-        Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
-        name('admin.product.delete');
+        // Route::get('/create', [ProductController::class, 'viewCreate'])->
+        // name('admin.product.create.index');
+        // Route::post('/create', [ProductController::class, 'createProduct'])->
+        // name('admin.product.create');
+        // Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
+        // name('admin.product.delete');
         });
     });
   
