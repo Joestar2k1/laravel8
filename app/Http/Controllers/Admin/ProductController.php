@@ -10,8 +10,30 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function loadProduct(){
-        $data =DB::table('products')->paginate(4);
-        return view('admin.products.index',compact('data'));
+       
+            $data =DB::table('products')->paginate(4);  
+            return view('admin.products.index',compact('data'));
+    }
+    public function handleRequestSwap($request1){
+            if($request1 == 100000){
+                $data =DB::table('products')
+                ->where('price','<=',$request1)->paginate(4);
+                return view('admin.products.index',compact('data'));      
+            }else if($request1 == 200000){
+                $data =DB::table('products')
+                ->where('price','>=',$request1)->paginate(4);
+                return view('admin.products.index',compact('data'));
+            } else if($request1 == '1'){
+                $data =DB::table('products')
+                ->where('price','>=','100000')
+                ->where('price','<=','200000')->paginate(4);
+                return view('admin.products.index',compact('data'));
+            }else if($request1 == 'stock'){
+                $data = Product::orderBy('stock')->paginate(4);
+                // $data =DB::table('products')
+                // ->sortBy($request1)->get()->paginate(4);
+                return view('admin.products.index',compact('data'));
+            }
     }
     public function viewCreate(){
         $data =DB::table('products')->select('type')->distinct()->get();
@@ -42,5 +64,15 @@ class ProductController extends Controller
             $products->delete();  
             return redirect()->route('admin.product');
         }      
+    }
+
+    public function search($keyWord){
+        if($keyWord!=null){
+            $products = Product::where('name',$keyWord);
+            return view('admin.products.index',compact('products'));
+        }else{
+            $data =DB::table('products')->paginate(4);  
+            return view('admin.products.index',compact('data'));
+        }
     }
 }

@@ -1,15 +1,36 @@
 @extends('admin.app')
 @section('title') Admin-product @endsection
 @section('content')
-<div class="page-wrapper" >
 
-<div class="page-breadcrumb bg-white">
-    <div class="row align-items-center">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <span class="page-title">Sản phẩm<a href="{{route('admin.product.create.index')}}" class="btn btn-success">Create new</a></span> 
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="row">
+<div class="col-sm-4  text-white">
+        <a href="{{route('admin.product.create.index')}}" class="btn btn-success">Tạo sản phẩm</a>
     </div>
-    <!-- /.col-lg-12 -->
+    <div class="col-sm-4 text-white"> 
+        <form class="d-flex" method="GET" role="form" >
+            @csrf
+            <input class="form-control me-2" id="keyWord" name="keyWord"type="text" placeholder="Search">
+            <button class="btn btn-primary" type="button">Tìm kiếm</button>
+        </form>
+    </div>
+    <div class="col-sm-4 text-white"> 
+        <div class="dropdown dropend">
+            <button type="button" class="btn btn-primary dropdown-toggle"   data-bs-toggle="dropdown">
+                Sắp xếp
+            </button>
+            <ul class="dropdown-menu">             
+                <li><a class="dropdown-item" href="{{route('admin.product')}}">Tất cả</a></li>          
+                <li><a class="dropdown-item" href="{{route('admin.product.request','1')}}">Giá (100.000đ- 200.000đ)</a></li> 
+                <li><a class="dropdown-item" href="{{route('admin.product.request','100000')}}">Giá (100.000đ trở xuống)</a></li>                   
+                <li><a class="dropdown-item" href="{{route('admin.product.request','200000')}}">Giá (200.000đ trở lên)</a></li>          
+                <li><a class="dropdown-item" href="{{route('admin.product.request','stock')}}">Số lượng TK tăng dần</a></li>          
+            </ul>
+        </div>
+        
+    </div>
+  </div>
 </div>
 <div class="container-fluid">
     <div class="container mt-3">
@@ -30,10 +51,7 @@
                     </th>     
                     <th>
                         Ảnh minh họa
-                    </th>   
-                    <th>
-                       Loại
-                    </th> 
+                    </th>                  
                     <th>
                      Đơn vị tính
                     </th> 
@@ -56,8 +74,7 @@
                    <td> ${{$item->price}}</td>
                    <td> {{$item->description}}</td>
                   
-                   <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
-                   <td> {{$item->type}}</td>
+                   <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>               
                    <td> {{$item->unit}}</td>
                    <td> {{$item->status}}</td>
                    <td>
@@ -73,6 +90,6 @@
         {{$data->links()}}
     </div>
 </div>
-</div>
+
 
 @endsection

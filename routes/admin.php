@@ -21,12 +21,21 @@ Route::group(['prefix' => '/'], function () {
        name('admin.account.ad');
       
        Route::group(['prefix' => '/products'], function () {
-            Route::get('/', [ProductController::class, 'loadProduct'])->
+            Route::get('', [ProductController::class, 'loadProduct'])->
             name('admin.product');
+
+            Route::get('/{request1}', [ProductController::class, 'handleRequestSwap'])->
+            name('admin.product.request');
+
+            // Route::get('/search/{keyWord}', [ProductController::class, 'search'])->
+            // name('admin.product.search');
+
             Route::get('/create', [ProductController::class, 'viewCreate'])->
             name('admin.product.create.index');
+
             Route::post('/create', [ProductController::class, 'createProduct'])->
             name('admin.product.create');
+
             Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
             name('admin.product.delete');
        });
