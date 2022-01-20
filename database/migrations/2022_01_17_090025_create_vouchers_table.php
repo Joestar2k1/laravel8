@@ -23,7 +23,7 @@ class CreateVouchersTable extends Migration
             $table->dateTime('startDate');
             $table->dateTime('endDate');
             $table->integer('limit');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

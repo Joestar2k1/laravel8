@@ -17,16 +17,16 @@ class User extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id'=> 'em160120221',
+                'id'=> 'ad160120221',
                 'username' => 'layer01',
                 'password' => Hash::make('23112001'),
                 'email' => 'russian2311@gmail.com',
                 'fullName' => 'Nguyễn Hoài Chương',
                 'address' => 'Gò vấp',
-                'isAdmin' => true,
+                'type' => 'admin',
                 'phone' => '0123456789',
                  'avatar' => 'avatar1.png',
-                'status' => true,
+                'status' => 1,
             ],
             [    
                 'id'=> 'em160120222',
@@ -36,10 +36,9 @@ class User extends Seeder
                 'email' => 'tuannghia@gmail.com',
                 'fullName' => 'Huỳnh Tấn Nghĩa',
                 'address' => 'Quận 6',
-                'isAdmin' => false,
+                'type' => 'NV kiểm kho',
                 'phone' => '0123456789',
                  'avatar' => 'avatar2.png',
-
                 'status' => true,
             ],
             [   
@@ -49,11 +48,10 @@ class User extends Seeder
                 'email' => 'vantuan@gmail.com',
                 'fullName' => 'Hồ Văn Tuân',
                 'address' => 'Quận 5',
-                'isAdmin' => false,
+                'type' => 'NV thanh toán',
                 'phone' => '0123456789',
                  'avatar' => 'avatar3.png',
-
-                'status' => true,
+                'status' => 1,
             ],
             [
                 'id'=> 'em160120224',
@@ -62,11 +60,10 @@ class User extends Seeder
                 'email' => 'thanhle@gmail.com',
                 'fullName' => 'Nguyễn Thành Lễ',
                 'address' => 'Quận 5', 
-                'isAdmin' => false,
+                'type' => 'Khách hàng',
                 'phone' => '0123456789',
                  'avatar' => 'xyz.jpg',
-
-                'status' => true,
+                'status' => 1,
             ], [
                 'id'=> 'em160120225',
                 'username' => 'layer05',
@@ -74,10 +71,10 @@ class User extends Seeder
                 'email' => 'minhlong@gmail.com',
                 'fullName' => 'Nguyễn Vũ Minh Long',
                 'address' => 'TP Hồ Chí minh',
-                'isAdmin' => false,
+                'type' => 'Khách hàng',
                 'phone' => '0123456789',
                  'avatar' => 'avatar1.png',
-                'status' => true,
+                'status' => 1,
             ],
         ]);
     }

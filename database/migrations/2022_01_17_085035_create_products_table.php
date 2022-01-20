@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('unit');
             $table->string('description');
             $table->string('image');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }
