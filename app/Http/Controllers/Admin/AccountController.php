@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use PhpParser\Builder\Function_;
+use PhpParser\Node\Expr\FuncCall;
 
 class AccountController extends Controller
 {
@@ -19,11 +22,11 @@ class AccountController extends Controller
     }
 
     public function deleteAccount($id){
-        $users = User::find($id);       
-        if($users !=null){       
-            $users->delete();  
+        $users = User::find($id);
+        if($users !=null){
+            $users->delete();
             return redirect()->route('admin.account');
-        }      
+        }
     }
 
     public function Search(Request $request){

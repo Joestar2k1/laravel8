@@ -17,9 +17,9 @@ class CreateImportedInvoiceDetailsTable extends Migration
             $table->string('id')->primary();
             $table->string('importedInvoiceID');
             $table->string('sku');
-            $table->string('productName');           
+            $table->string('productName');
             $table->integer('quantity');
-            $table->integer('price');      
+            $table->integer('price');
             $table->string('unit');
             $table->timestamps();
         });

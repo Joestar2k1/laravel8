@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+
 class User extends Seeder
 {
     /**
@@ -28,11 +29,11 @@ class User extends Seeder
                  'avatar' => 'avatar1.png',
                 'status' => 1,
             ],
-            [    
-                'id'=> 'em160120222',
+            [
+                'id' => 'em160120222',
 
                 'username' => 'layer02',
-                'password' => Hash::make('123'),
+                'password' => Hash::make('4214232524232'),
                 'email' => 'tuannghia@gmail.com',
                 'fullName' => 'Huỳnh Tấn Nghĩa',
                 'address' => 'Quận 6',
@@ -41,10 +42,10 @@ class User extends Seeder
                  'avatar' => 'avatar2.png',
                 'status' => true,
             ],
-            [   
-                'id'=> 'em160120223',
+            [
+                'id' => 'em160120223',
                 'username' => 'layer03',
-                'password' => Hash::make('456'),
+                'password' => Hash::make('4531231246'),
                 'email' => 'vantuan@gmail.com',
                 'fullName' => 'Hồ Văn Tuân',
                 'address' => 'Quận 5',
@@ -54,9 +55,9 @@ class User extends Seeder
                 'status' => 1,
             ],
             [
-                'id'=> 'em160120224',
+                'id' => 'em160120224',
                 'username' => 'layer04',
-                'password' => Hash::make('890'),
+                'password' => Hash::make('81231290'),
                 'email' => 'thanhle@gmail.com',
                 'fullName' => 'Nguyễn Thành Lễ',
                 'address' => 'Quận 5', 
@@ -65,9 +66,9 @@ class User extends Seeder
                  'avatar' => 'xyz.jpg',
                 'status' => 1,
             ], [
-                'id'=> 'em160120225',
+                'id' => 'em160120225',
                 'username' => 'layer05',
-                'password' => Hash::make('901'),
+                'password' => Hash::make('Minhlong@1902'),
                 'email' => 'minhlong@gmail.com',
                 'fullName' => 'Nguyễn Vũ Minh Long',
                 'address' => 'TP Hồ Chí minh',

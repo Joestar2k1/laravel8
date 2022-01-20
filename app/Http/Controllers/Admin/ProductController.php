@@ -10,15 +10,15 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function loadProduct(){
-       
-            $data =DB::table('products')->paginate(4);  
+
+            $data =DB::table('products')->paginate(4);
             return view('admin.products.index',compact('data'));
     }
     public function handleRequestSwap($request1){
             if($request1 == 100000){
                 $data =DB::table('products')
                 ->where('price','<=',$request1)->paginate(4);
-                return view('admin.products.index',compact('data'));      
+                return view('admin.products.index',compact('data'));
             }else if($request1 == 200000){
                 $data =DB::table('products')
                 ->where('price','>=',$request1)->paginate(4);
@@ -47,11 +47,11 @@ class ProductController extends Controller
             $file_name = Date('Ymd').'-'.'product'.$countPrd.$ext;
             $file->move(public_path('backend/assets/img/products'),$file_name);
         }
-  
+
         $date = Date('Ymd');
         $randomID = 'f'.$date .'pr' . $countPrd;
         $products = new Product;
-        
+
         $products->id = $randomID;
         $products->name = $request->name;
         $products->description = $request->description;
@@ -60,17 +60,17 @@ class ProductController extends Controller
         $products->type = $request->type;
         $products->image = $file_name;
         $products->unit = $request->unit;
-        $products->status = 1; 
+        $products->status = 1;
         $products->save();
         return redirect()->route('admin.product');
     }
 
     public function deleteProduct($id){
-        $products = Product::find($id);       
-        if($products !=null){       
-            $products->delete();  
+        $products = Product::find($id);
+        if($products !=null){
+            $products->delete();
             return redirect()->route('admin.product');
-        }      
+        }
     }
 
     public function Search(Request $request){
