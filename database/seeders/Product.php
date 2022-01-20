@@ -24,7 +24,7 @@ class Product extends Seeder
                 'unit' => 'Kg',
                  'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
                  'image' => '1.png',
-                'status' => true,
+                'status' => 1,
             ]
             ,                   
             [ 'id'=> 'f180120022pr2',
@@ -36,7 +36,7 @@ class Product extends Seeder
                 'unit' => 'Kg',
                 'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
                 'image' => '3.png',
-                'status' => true,
+                'status' => 1,
             ],
             [ 'id'=> 'f180120022pr3',           
                 'name' => 'Cam mỹ',
@@ -46,7 +46,7 @@ class Product extends Seeder
                 'unit' => 'Kg',
                 'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
                 'image' => '4.png',
-                'status' => true,
+                'status' => 1,
             ],                     
             [ 'id'=>  'f180120022pr4',
                
@@ -57,7 +57,7 @@ class Product extends Seeder
                 'unit' => 'Kg',
                 'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
                 'image' => '5.png',
-                'status' => true,
+                'status' => 1,
             ],
             [ 'id'=>  'f180120022pr5',
                 
@@ -68,7 +68,7 @@ class Product extends Seeder
                 'unit' => 'Kg',
                 'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
                 'image' => '6.png',
-                'status' => true,
+                'status' => 1,
             ],
             [ 'id'=> 'f180120022pr6',
             'name' => 'Táo mỹ',
@@ -78,7 +78,7 @@ class Product extends Seeder
             'unit' => 'Kg',
             'description' => 'Hỗ trợ tăng sức khỏe, vitamin C',
             'image' => '2.png',
-            'status' => true,
+            'status' => 1,
         ],
         ]);
     }
