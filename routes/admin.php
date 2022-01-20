@@ -15,12 +15,23 @@ Route::group(['prefix' => '/'], function () {
     
     Route::group(['middleware' => ['auth:admin']], function () {
        Route::get('/dashboard', [HomeController::class,'index'])->name('admin.dashboard');
+
        Route::get('/account', [AccountController::class, 'loadAccount'])->
-       name('admin.account.user');
-       Route::get('/accountAD', [AccountController::class, 'loadAccountAdmin'])->
-       name('admin.account.ad');
-    
+       name('admin.account');
+
+       Route::get('/account/delete/{id}', [AccountController::class, 'deleteAccount'])->
+       name('admin.account.delete');
+
+       Route::get('/account/search', [AccountController::class, 'Search'])->
+       name('admin.account.search');
+
+       Route::get('/account/profile', [AccountController::class, 'viewProfile'])->
+       name('admin.account.profile');
+
+       //--------------------------------------------------------------->
+
        Route::group(['prefix' => '/products'], function () {
+        
             Route::get('', [ProductController::class, 'loadProduct'])->
             name('admin.product');
 

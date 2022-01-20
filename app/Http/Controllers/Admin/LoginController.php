@@ -34,7 +34,7 @@ class LoginController extends Controller
             'password' => $request->password
         ], $request->get('remember'))) {
             $infoUser = DB::table('users')->where('email',$request->email)->get();
-            return redirect()->intended(route('admin.dashboard',['users'=>$infoUser]));
+            return view('admin.dashboard');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
