@@ -25,8 +25,8 @@
                      class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lí hóa đơn</span><i
                      class="treeview-indicator fa fa-angle-right"></i></a>
              <ul class="treeview-menu">
-                 <li><a class="treeview-item" href="{{ route('admin.imported_invoice.index') }}"><i
-                             class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng</a></li>
+             <li><a class="treeview-item" href="{{ route('admin.invoice') }}"><i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng</a></li>
+                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng</a></li>
 
              </ul>
          </li>

@@ -1,17 +1,16 @@
 @extends('admin.app')
 @section('title') Admin-Account @endsection
 @section('content')
-<div class="page-wrapper" >
-<div>
-    <h4>Danh sách các hóa đơn</h4>
+<div class="container">
+<div class="row">
+  <div class="col">
+        <label for="dateCreated" class="form-label">Tìm hóa đơn theo mốc thời gian</label>
+        <input type="date" id="date-picker" class="form-control"  name="dateCreated" value="">
+        
+  </div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
 </div>
-<div class="page-breadcrumb bg-white">
-    <div class="row align-items-center">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <a class="btn btn-success">Create new</a>
-        </div>
-    </div>
-    <!-- /.col-lg-12 -->
 </div>
 <div class="container-fluid">
     <div class="container mt-3">
@@ -70,6 +69,4 @@
         </table>
     </div>
 </div>
-</div>
-
 @endsection

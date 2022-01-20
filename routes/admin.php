@@ -53,24 +53,23 @@ Route::group(['prefix' => '/'], function () {
        });
 //----------------------------------------------------------------------------------------
        Route::group(['prefix' => '/invoices'], function () {
-        Route::get('/', [InvoiceController::class, 'showInvoice'])->
-        name('admin.invoices');
+               Route::get('/', [InvoiceController::class, 'showInvoice'])->name('admin.invoice');
         });
         //----------------------------------------------------------
-        Route::group(['prefix' => '/invoices'], function(){
-          Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
-          Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
-          Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
-     });
+     //    Route::group(['prefix' => '/invoices'], function(){
+     //      Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
+     //      Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
+     //      Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
+     //      });
 
 //----------------------------------------------------------------------------------------
 
-     Route::group(['prefix' => '/provider'], function(){
-      Route::get('/', [ProviderController::class, 'loadProvider'])->name('admin.provider.index');
-      Route::post('/create', [ProviderController::class, 'createProvider'])->name('admin.provider.createProvider');
+          Route::group(['prefix' => '/provider'], function(){
+          Route::get('/', [ProviderController::class, 'loadProvider'])->name('admin.provider.index');
+          Route::post('/create', [ProviderController::class, 'createProvider'])->name('admin.provider.createProvider');
 
-     });
-    });
+          });
+          });
 
 });
 

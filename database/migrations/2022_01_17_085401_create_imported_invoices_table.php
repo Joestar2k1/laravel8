@@ -20,7 +20,7 @@ class CreateImportedInvoicesTable extends Migration
             $table->integer('totalPrice');
             $table->integer('totalQuantity');
             $table->dateTime('importedDate');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

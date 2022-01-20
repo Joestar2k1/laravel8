@@ -77,6 +77,7 @@ class ProductController extends Controller
         if(isset($_GET['keyWord'])){
             $searchText = $_GET['keyWord'];
             $data = DB::table('products')->where('name','LIKE','%'.$searchText.'%')->paginate(2);
+            $data ->appends($request->all());
             return view('admin.products.index',compact('data'));
         }else{
             return view('admin.dashboard');
