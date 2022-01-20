@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/main.css') }}" />
 
     <link rel="stylesheet" type="text/css"
-        href=" {{ asset('backend/assets/css/font-awesome/4.7.0/css/font-awesome.min.css') }} " />
+        href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css') }}" />
 
     {{-- Css của Imported Invoice --}}
     <style>

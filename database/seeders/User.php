@@ -26,7 +26,7 @@ class User extends Seeder
                 'address' => 'Gò vấp',
                 'isAdmin' => true,
                 'phone' => '0123456789',
-                'avatar' => 'abc.jpg',
+                 'avatar' => 'avatar1.png',
                 'status' => true,
             ],
             [
@@ -37,9 +37,9 @@ class User extends Seeder
                 'email' => 'tuannghia@gmail.com',
                 'fullName' => 'Huỳnh Tấn Nghĩa',
                 'address' => 'Quận 6',
-                'isAdmin' => true,
+                'isAdmin' => false,
                 'phone' => '0123456789',
-                'avatar' => 'xyz.jpg',
+                 'avatar' => 'avatar2.png',
 
                 'status' => true,
             ],
@@ -50,9 +50,9 @@ class User extends Seeder
                 'email' => 'vantuan@gmail.com',
                 'fullName' => 'Hồ Văn Tuân',
                 'address' => 'Quận 5',
-                'isAdmin' => true,
+                'isAdmin' => false,
                 'phone' => '0123456789',
-                'avatar' => 'xyz.jpg',
+                 'avatar' => 'avatar3.png',
 
                 'status' => true,
             ],
@@ -63,7 +63,7 @@ class User extends Seeder
                 'email' => 'thanhle@gmail.com',
                 'fullName' => 'Nguyễn Thành Lễ',
                 'address' => 'Quận 5',
-                'isAdmin' => true,
+                'isAdmin' => false,
                 'phone' => '0123456789',
                 'avatar' => 'xyz.jpg',
 
@@ -75,9 +75,9 @@ class User extends Seeder
                 'email' => 'minhlong@gmail.com',
                 'fullName' => 'Nguyễn Vũ Minh Long',
                 'address' => 'TP Hồ Chí minh',
-                'isAdmin' => true,
+                'isAdmin' => false,
                 'phone' => '0123456789',
-                'avatar' => 'xyz.jpg',
+                 'avatar' => 'avatar1.png',
                 'status' => true,
             ],
         ]);
