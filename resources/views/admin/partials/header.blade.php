@@ -11,7 +11,7 @@
     <li class="app-search">
       <input class="app-search__input" type="search" placeholder="Search" />
       <button class="app-search__button">
-        <i class="fa fa-search"></i>
+          <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </li>
     <!--Notification Menu-->
@@ -21,8 +21,8 @@
         href="#"
         data-toggle="dropdown"
         aria-label="Show notifications"
-        ><i class="far fa-bell fa-lg"></i
-      ></a>
+        ><i class="fa fa-bell-o" aria-hidden="true"></i>
+      </a>
       <ul class="app-notification dropdown-menu dropdown-menu-right">
         <li class="app-notification__title">
           You have 4 new notifications.
@@ -142,22 +142,21 @@
         href="#"
         data-toggle="dropdown"
         aria-label="Open Profile Menu"
-        ><i class="fas fa-user fa-lg"></i
-      ></a>
+        ><i class="fa fa-user-circle" aria-hidden="true"></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li>
           <a class="dropdown-item" href="page-user.html"
-            ><i class="fas fa-cog fa-lg"></i> Settings</a
+            ><i class="fa fa-cog" aria-hidden="true"></i> Settings</a
           >
         </li>
         <li>
-          <a class="dropdown-item" href="page-user.html"
-            ><i class="fas fa-user fa-lg"></i> Profile</a
+          <a class="dropdown-item" href="{{route('admin.account.profile')}}"
+            ><i class="fa fa-user" aria-hidden="true"></i> Profile</a
           >
         </li>
         <li>
           <a class="dropdown-item" href="{{route('admin.logout')}}"
-            ><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a
+            ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
           >
         </li>
       </ul>
