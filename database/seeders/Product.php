@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 class Product extends Seeder
 {
     /**
@@ -16,10 +15,10 @@ class Product extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            [
-                'id'=>  'f180120022pr1',
+            [  
+                'id'=>  'f180120022pr1',             
                 'name' => 'Dâu tằm',
-                'price' =>  3,
+                'price' =>  30000,
                 'stock' => 120,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
@@ -27,11 +26,11 @@ class Product extends Seeder
                  'image' => '1.png',
                 'status' => 1,
             ]
-            ,
+            ,                   
             [ 'id'=> 'f180120022pr2',
-
+              
                 'name' => 'Kiwi',
-                'price' =>  10,
+                'price' =>  50000,
                 'stock' => 90,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
@@ -39,9 +38,9 @@ class Product extends Seeder
                 'image' => '3.png',
                 'status' => 1,
             ],
-            [ 'id'=> 'f180120022pr3',
+            [ 'id'=> 'f180120022pr3',           
                 'name' => 'Cam mỹ',
-                'price' =>  30,
+                'price' =>  35000,
                 'stock' => 90,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
@@ -50,9 +49,9 @@ class Product extends Seeder
                 'status' => 1,
             ],                     
             [ 'id'=>  'f180120022pr4',
-
+               
                 'name' => 'Nho nhật',
-                'price' =>  20,
+                'price' =>  45000,
                 'stock' => 90,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
@@ -61,9 +60,9 @@ class Product extends Seeder
                 'status' => 1,
             ],
             [ 'id'=>  'f180120022pr5',
-
+                
                 'name' => 'Dâu tây',
-                'price' =>  20,
+                'price' =>  90000,
                 'stock' => 90,
                 'type' => 'Trái cây',
                 'unit' => 'Kg',
@@ -73,7 +72,7 @@ class Product extends Seeder
             ],
             [ 'id'=> 'f180120022pr6',
             'name' => 'Táo mỹ',
-            'price' =>  5,
+            'price' =>  25000,
             'stock' => 30,
             'type' => 'Trái cây',
             'unit' => 'Kg',
@@ -82,5 +81,5 @@ class Product extends Seeder
             'status' => 1,
         ],
         ]);
-    }
-}
+
+}}

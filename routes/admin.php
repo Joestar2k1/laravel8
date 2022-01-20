@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ImportedInvoiceController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\ProviderController;
 use Illuminate\Support\Facades\Auth;
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [LoginController::class,'loginForm'])->name('admin.login.get');
@@ -51,41 +52,25 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
             name('admin.product.delete');
        });
-
+//----------------------------------------------------------------------------------------
        Route::group(['prefix' => '/invoices'], function () {
         Route::get('/', [InvoiceController::class, 'showInvoice'])->
         name('admin.invoices');
-        // Route::get('/create', [ProductController::class, 'viewCreate'])->
-        // name('admin.product.create.index');
-        // Route::post('/create', [ProductController::class, 'createProduct'])->
-        // name('admin.product.create');
-        // Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->
-        // name('admin.product.delete');
         });
+        //----------------------------------------------------------
+        Route::group(['prefix' => '/imported_invoices'], function(){
+          Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
+          Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
+          Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
+     });
+
+//----------------------------------------------------------------------------------------
+
+     Route::group(['prefix' => '/provider'], function(){
+      Route::get('/', [ProviderController::class, 'loadProvider'])->name('admin.provider.index');
+      Route::post('/create', [ProviderController::class, 'createProvider'])->name('admin.provider.createProvider');
+
+     });
     });
 
 });
-
-       Route::group(['prefix' => '/products'], function () {
-            Route::get('/', [ProductController::class, 'loadProduct'])->name('admin.product');
-
-            Route::get('/create', [ProductController::class, 'viewCreate'])->name('admin.products.create');
-
-            Route::post('/create', [ProductController::class, 'createProduct'])->name('admin.product.create');
-
-            Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.product.delete');
-
-       });
-
-       Route::group(['prefix' => '/invoices'], function(){
-            Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
-            Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
-            Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
-       });
-
-
-       Route::group(['prefix' => '/provider'], function(){
-        Route::get('/', [ProviderController::class, 'loadProvider'])->name('admin.provider.index');
-        Route::post('/create', [ProviderController::class, 'createProvider'])->name('admin.provider.createProvider');
-
-   });

@@ -26,17 +26,28 @@
                              class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a></li>
              </ul>
          </li>
-         <li>
-             <a class="app-menu__item" href="{{ route('admin.product') }}">
-                 <i class="fa fa-product-hunt" aria-hidden="true"></i></i>
-                 <span class="app-menu__label">Sản phẩm</span>
-             </a>
+         <li><a class="app-menu__item" href="{{ route('admin.product') }}"><i
+                     class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Sản phẩm</span></a></li>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                     class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lí hóa đơn</span><i
+                     class="treeview-indicator fa fa-angle-right"></i></a>
+             <ul class="treeview-menu">
+                 <li><a class="treeview-item" href="{{ route('admin.imported_invoice.index') }}"><i
+                             class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng</a></li>
+
+             </ul>
          </li>
-         <li>
-             <a class="app-menu__item" ">
-                 <i class=" fa fa-certificate" aria-hidden="true"></i></i>
-                 <span class="app-menu__label">Hóa đơn</span>
-             </a>
+
+         <li class="treeview">
+             <a class="app-menu__item" href="#" data-toggle="treeview">
+                 <i class="app-menu__icon fa fa-laptop"></i>
+                 <span class="app-menu__label">Quản lí nhà cung cấp</span><i
+                     class="treeview-indicator fa fa-angle-right"></i></a>
+             <ul class="treeview-menu">
+                 <li><a class="treeview-item" href="{{ route('admin.provider.index') }}"><i
+                             class="icon fa fa-circle-o"></i>Nhà cung cấp</a></li>
+
+             </ul>
          </li>
      </ul>
  </aside>
