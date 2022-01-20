@@ -13,10 +13,6 @@ class ForeignKeyLR extends Migration
      */
     public function up()
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->foreign('productID')->references('id')->on('products');
-            $table->foreign('userID')->references('id')->on('users');
-        });
 
         Schema::table('vouchers', function (Blueprint $table) {
             $table->foreign('productID')->references('id')->on('products');
