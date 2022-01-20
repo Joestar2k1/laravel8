@@ -13,4 +13,7 @@ class InvoiceController extends Controller
         ->select('users.fullName','invoices.id','invoices.dateCreated','shippingName','shippingPhone','shippingAddress','total','invoices.status')->paginate(2);
         return view('admin.invoices.index',compact('data'));
     }
+    public function createInvoice(){
+        
+    }
 }
