@@ -38,14 +38,19 @@
                                     <td> {{ $item->phone }}</td>
                                     <td> {{ $item->status }}</td>
                                     <td>
-                                        <button style="background-color: rgb(126, 233, 126)" type="submit"> <a
-                                                class="add" title="Add" data-toggle="tooltip"><i
-                                                    class="material-icons">&#xE03B;</i></a></button>
+                                        <button class="add fa fa-plus" type="submit">
+                                            <a class="add" title="Add" data-toggle="tooltip">
 
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i
-                                                class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i
-                                                class="material-icons">&#xE872;</i></a>
+                                            </a>
+                                        </button>
+
+
+                                        <a class="edit " title="Edit" data-toggle="tooltip">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="delete" title="Delete" data-toggle="tooltip">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
