@@ -24,7 +24,7 @@ Route::group(['prefix' => '/'], function () {
        Route::get('/account/delete/{id}', [AccountController::class, 'deleteAccount'])->
        name('admin.account.delete');
 
-       Route::get('/account/search', [AccountController::class, 'Search'])->
+       Route::get('/account/search', [AccountController::class, 'searchAccount'])->
        name('admin.account.search');
 
        Route::get('/account/profile', [AccountController::class, 'viewProfile'])->

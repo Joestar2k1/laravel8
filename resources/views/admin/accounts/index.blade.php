@@ -93,6 +93,68 @@
             {{ $data->links() }}
         </div>
     </div>
+  </div>
+</div>
+<div class="container-fluid">
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Mã nhân viên
+                    </th> 
+                    <th>
+                       Tên hiển thị
+                    </th>   
+                    <th>
+                      Email
+                    </th>   
+                    <th>
+                       Họ tên
+                    </th>       
+                    <th>
+                       Địa chỉ
+                    </th>     
+                    <th>
+                      Số điện thoại
+                    </th>   
+                    <th>
+                       Ảnh
+                    </th> 
+                    <th>
+                       Trạng thái
+                    </th>  
+                    <th>
+                       Sửa
+                    </th>     
+                    <th>
+                       Xóa
+                    </th>             
+                </tr>
+            </thead>
+            <tbody>   
+                    @foreach($data as $item)
+                    <tr>                        
+                        <td> {{$item->id}}</td>
+                        <td> {{$item->username}}</td>
+                        <td> {{$item->email}}</td>
+                        <td> {{$item->fullName}}</td>
+                        <td> {{$item->address}}</td>
+                        <td> {{$item->phone}}</td>
+                        <td> <img style="background:white" src="{{asset('backend/assets/img/avaters/'.$item->avatar)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>  
+                        <td> {{$item->status}}</td>
+                        <td>
+                                <a class="btn btn-success" >Edit</a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.account.delete',$item->id)}}" class="btn btn-danger">Delete</a>
+                            </td>
+                    </tr>    
+                    @endforeach     
+             
+            </tbody>
+        </table>
+        {{$data->links()}}
     </div>
 
 @endsection

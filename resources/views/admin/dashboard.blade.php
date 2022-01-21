@@ -3,8 +3,8 @@
 @section('content')
   <div class="app-title">
     <div>
-      <h1> Dashboard</h1>
-      <p>Xin chào các bạn</p>
+      <h1> Dashboard</h1>  
+        <p>Xin chào </p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
      
