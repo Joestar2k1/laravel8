@@ -70,7 +70,7 @@
                 <tr>                        
                    <td> {{$item->name}}</td>
                    <td> {{$item->stock}}</td>
-                   <td> ${{$item->price}}</td>
+                   <td> {{$item->price}}</td>
                    <td> {{$item->description}}</td>
                   
                    <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>               

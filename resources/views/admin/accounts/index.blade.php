@@ -68,24 +68,25 @@
                 </tr>
             </thead>
             <tbody>   
-                @foreach($data as $item)
-                <tr>                        
-                   <td> {{$item->id}}</td>
-                   <td> {{$item->username}}</td>
-                   <td> {{$item->email}}</td>
-                   <td> {{$item->fullName}}</td>
-                   <td> {{$item->address}}</td>
-                   <td> {{$item->phone}}</td>
-                   <td> <img style="background:white" src="{{asset('backend/assets/img/avaters/'.$item->avatar)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>  
-                   <td> {{$item->status}}</td>
-                   <td>
-                        <a class="btn btn-success" >Edit</a>
-                    </td>
-                    <td>
-                        <a href="{{route('admin.account.delete',$item->id)}}" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>    
-                @endforeach           
+                    @foreach($data as $item)
+                    <tr>                        
+                        <td> {{$item->id}}</td>
+                        <td> {{$item->username}}</td>
+                        <td> {{$item->email}}</td>
+                        <td> {{$item->fullName}}</td>
+                        <td> {{$item->address}}</td>
+                        <td> {{$item->phone}}</td>
+                        <td> <img style="background:white" src="{{asset('backend/assets/img/avaters/'.$item->avatar)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>  
+                        <td> {{$item->status}}</td>
+                        <td>
+                                <a class="btn btn-success" >Edit</a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.account.delete',$item->id)}}" class="btn btn-danger">Delete</a>
+                            </td>
+                    </tr>    
+                    @endforeach     
+             
             </tbody>
         </table>
         {{$data->links()}}
