@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ImportedInvoiceController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\ProviderController;
 use Illuminate\Support\Facades\Auth;
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [LoginController::class,'loginForm'])->name('admin.login.get');
@@ -56,11 +57,13 @@ Route::group(['prefix' => '/'], function () {
                Route::get('/', [InvoiceController::class, 'showInvoice'])->name('admin.invoice');
         });
         //----------------------------------------------------------
-     //    Route::group(['prefix' => '/invoices'], function(){
-     //      Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
-     //      Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
-     //      Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
-     //      });
+
+        Route::group(['prefix' => '/imported_invoices'], function(){
+          Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
+          Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
+          Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
+     });
+
 
 //----------------------------------------------------------------------------------------
 
@@ -72,6 +75,3 @@ Route::group(['prefix' => '/'], function () {
           });
 
 });
-
-
-
