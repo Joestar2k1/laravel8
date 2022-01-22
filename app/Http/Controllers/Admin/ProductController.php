@@ -14,24 +14,17 @@ class ProductController extends Controller
             $data =DB::table('products')->paginate(4);
             return view('admin.products.index',compact('data'));
     }
-    public function handleRequestSwap($request1){
-            if($request1 == 100000){
+    public function handleRequestSwap($request){
+            if($request == 'price_up'){
                 $data =DB::table('products')
-                ->where('price','<=',$request1)->paginate(4);
+                ->where('price','>=','50000')->paginate(4);
                 return view('admin.products.index',compact('data'));
-            }else if($request1 == 200000){
+            }else if($request == 'price_down'){
                 $data =DB::table('products')
-                ->where('price','>=',$request1)->paginate(4);
+                ->where('price','<=','50000')->paginate(4);
                 return view('admin.products.index',compact('data'));
-            } else if($request1 == '1'){
-                $data =DB::table('products')
-                ->where('price','>=','100000')
-                ->where('price','<=','200000')->paginate(4);
-                return view('admin.products.index',compact('data'));
-            }else if($request1 == 'stock'){
+            } else if($request == 'stock'){
                 $data = Product::orderBy('stock')->paginate(4);
-                // $data =DB::table('products')
-                // ->sortBy($request1)->get()->paginate(4);
                 return view('admin.products.index',compact('data'));
             }
     }
