@@ -55,16 +55,9 @@ Route::group(['prefix' => '/'], function () {
 //----------------------------------------------------------------------------------------
        Route::group(['prefix' => '/invoices'], function () {
                Route::get('/', [InvoiceController::class, 'showInvoice'])->name('admin.invoice');
+               Route::get('/details/{invoiceID}', [InvoiceController::class, 'detailsInvoice'])->name('admin.invoice.details');
         });
-        //----------------------------------------------------------
-
-        Route::group(['prefix' => '/imported_invoices'], function(){
-          Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
-          Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
-          Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
-     });
-
-
+   
 //----------------------------------------------------------------------------------------
 
           Route::group(['prefix' => '/provider'], function(){

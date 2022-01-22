@@ -21,9 +21,8 @@
             </button>
             <ul class="dropdown-menu">             
                 <li><a class="dropdown-item" href="{{route('admin.product')}}">Tất cả</a></li>          
-                <li><a class="dropdown-item" href="{{route('admin.product.request','1')}}">Giá (100.000đ- 200.000đ)</a></li> 
-                <li><a class="dropdown-item" href="{{route('admin.product.request','100000')}}">Giá (100.000đ trở xuống)</a></li>                   
-                <li><a class="dropdown-item" href="{{route('admin.product.request','200000')}}">Giá (200.000đ trở lên)</a></li>          
+                <li><a class="dropdown-item" href="{{route('admin.product.request','price_down')}}">Giá 50.000đ trở xuống</a></li> 
+                <li><a class="dropdown-item" href="{{route('admin.product.request','price_up')}}">Giá 50.000đ trở lên</a></li>                   
                 <li><a class="dropdown-item" href="{{route('admin.product.request','stock')}}">Số lượng TK tăng dần</a></li>          
             </ul>
         </div>
