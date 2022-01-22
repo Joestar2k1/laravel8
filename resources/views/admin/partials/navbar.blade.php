@@ -7,13 +7,20 @@
              <p class="app-sidebar__user-designation">Frontend Developer</p>
          </div>
      </div>
+     </div>
      <ul class="app-menu">
-         <li><a class="app-menu__item active" href="index-2.html">
-           <i class="app-menu__icon fa fa-home"></i>
-           <span class="app-menu__label">Dashboard</span></a></li>
-         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                     class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lí nhân sự</span><i
-                     class="treeview-indicator fa fa-angle-right"></i></a>
+         <li>
+             <a class="app-menu__item active" href="{{ route('admin.dashboard') }}">
+                 <i class="fa fa-th-list" aria-hidden="true"></i></i>
+                 <span class="app-menu__label">Dashboard</span>
+             </a>
+         </li>
+         <li class="treeview">
+             <a class="app-menu__item" href="#" data-toggle="treeview">
+                 <i class="fa fa-users" aria-hidden="true"></i></i>
+                 <span class="app-menu__label">Quản lí nhân sự</span>
+                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
+             </a>
              <ul class="treeview-menu">
                  <li><a class="treeview-item" href="{{ route('admin.account') }}"><i
                              class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a></li>
@@ -32,9 +39,10 @@
          </li>
 
          <li class="treeview">
-           <a class="app-menu__item" href="#" data-toggle="treeview">
-             <i class="app-menu__icon fa fa-laptop"></i>
-             <span class="app-menu__label">Quản lí nhà cung cấp</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+             <a class="app-menu__item" href="#" data-toggle="treeview">
+                 <i class="app-menu__icon fa fa-laptop"></i>
+                 <span class="app-menu__label">Quản lí nhà cung cấp</span><i
+                     class="treeview-indicator fa fa-angle-right"></i></a>
              <ul class="treeview-menu">
                  <li><a class="treeview-item" href="{{ route('admin.provider.index') }}"><i
                              class="icon fa fa-circle-o"></i>Nhà cung cấp</a></li>
@@ -42,5 +50,4 @@
              </ul>
          </li>
      </ul>
-
  </aside>

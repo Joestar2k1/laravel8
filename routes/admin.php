@@ -68,6 +68,3 @@ Route::group(['prefix' => '/'], function () {
           });
 
 });
-
-
-
