@@ -21,6 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->string('shippingPhone');
             $table->integer('total');
             $table->dateTime('dateCreated');
+            $table->integer('isPaid');
             $table->integer('status');
             $table->timestamps();
         });

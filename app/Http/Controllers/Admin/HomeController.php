@@ -4,11 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Invoice;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('admin.dashboard');
+        $countInv = Invoice::All()->count();
+        $countUser = DB::table('users')
+        ->where('type','LIKE','%NV%')->count();
+        return view('admin.dashboard',['countInv'=> $countInv,'countUser'=>$countUser]);
     }
     
 }

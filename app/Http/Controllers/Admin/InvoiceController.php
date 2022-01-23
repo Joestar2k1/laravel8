@@ -10,7 +10,7 @@ class InvoiceController extends Controller
     public function showInvoice(){
         $invoices = DB::table('invoices')
         ->join('users','invoices.userID','=','users.id')
-        ->select('users.fullName','invoices.id','invoices.dateCreated','total','invoices.status','invoices.shippingAddress')->paginate(3);
+        ->select('users.fullName','invoices.id','invoices.dateCreated','total','invoices.status','invoices.shippingAddress','invoices.isPaid')->paginate(3);
         
         
         return view('admin.invoices.index',compact('invoices'));
