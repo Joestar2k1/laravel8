@@ -31,20 +31,21 @@
                     </th> 
                     <th>
                         Ngày tạo
-                    </th>                                             
-                    <th>
-                       Địa chỉ giao
-                    </th>     
+                    </th>                                                        
                     <th>
                         Tổng
                     </th>   
                     <th>
+                       Thanh toán
+                    </th> 
+                    <th>
                        Trạng thái
                     </th> 
+                    <th></th>
                     <th>
                         Xem
                     </th>
-                                                   
+                                            <th></th> <th></th>                
                 </tr>
             </thead>
             <tbody>   
@@ -52,18 +53,26 @@
                 <tr>                        
                    <td> {{$item->id}}</td>
                    <td> {{$item->fullName}}</td>
-                   <td> {{$item->dateCreated}}</td>              
-                   <td> {{$item->shippingAddress}}</td>
+                   <td> {{$item->dateCreated}}</td>                           
                    <td> {{$item->total}}</td>
                    <td>   
-                      @if($item->status ==1)
-                         <span>   <i class="fa fa-check" style="color:green" ></i>Đã thanh toán</span>
+                      @if($item->isPaid ==1)
+                         <span>   <i class="fa fa-check" style="color:green" ></i>Ok</span>
                         @endif
-                        @if($item->status ==0)
-                         <span>   <i class="fa fa-check" style="color:red"></i>Chưa thanh toán</span>
-                        @endif
-                      
+                        @if($item->isPaid ==0)
+                         <span>   <i class="fa fa-close" style="color:red"></i>Chưa</span>
+                        @endif                    
                     </td>
+                  
+                    <td>
+                        @if($item->status==1)
+                        <a class="btn btn-success" href="">Đã xác nhận</i></a>
+                        @endif
+                        @if($item->status==0)
+                        <a class="btn btn-warning" href="">Chờ xác nhận</i></a>
+                        @endif
+                    </td>
+                    <th></th>
                     <td>
                         <a href="{{route('admin.invoice.details',$item->id)}}">  <i class="fa fa-eye"></i></a>
                     </td>

@@ -1,5 +1,5 @@
 @extends('admin.app')
-@section('title') Admin-Account @endsection
+@section('title') Chi tiết hóa đơn @endsection
 @section('content')
 
 <div class="container mt-5">
@@ -45,8 +45,9 @@
                                     <th>Thành tiền</th>
                                 </tr>
                             </thead>
-                            <tbody>                               
-                                @foreach($invoice_details as $dt)
+                            <tbody>          
+                              @foreach($invoice_details as $dt)  
+                                                   
                                 <tr>
                                     <td>{{$dt->name}}</td>
                                     <td>
@@ -65,13 +66,15 @@
                                     <td></td>
                                     <td></td>
                                     <td>Total</td>
-                                    <td>940</td>
+                                    <td>{{$item->total}}đ</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="text-right mb-3"><button class="btn btn-danger btn-sm mr-5" type="button">Quay lại</button></div>
+                <div class="text-right mb-3">
+                <a  href="{{route('admin.invoice')}}" class="btn btn-primary">Quay lại</a>
+                </div>
             </div>
             @endforeach
         </div>

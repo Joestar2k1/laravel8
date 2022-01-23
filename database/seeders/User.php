@@ -31,7 +31,6 @@ class User extends Seeder
             ],
             [
                 'id' => 'em160120222',
-
                 'username' => 'layer02',
                 'password' => Hash::make('4214232524232'),
                 'email' => 'tuannghia@gmail.com',
@@ -48,9 +47,9 @@ class User extends Seeder
                 'password' => Hash::make('4531231246'),
                 'email' => 'vantuan@gmail.com',
                 'fullName' => 'Hồ Văn Tuân',
-                'address' => 'Quận 5',
+                'address' => '46 Hà văn, Quận 5',
                 'type' => 'NV thanh toán',
-                'phone' => '0123456789',
+                'phone' => '1234561231',
                  'avatar' => 'avatar3.png',
                 'status' => 1,
             ],

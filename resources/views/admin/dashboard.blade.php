@@ -18,7 +18,7 @@
         <i class="icon fa fa-truck fa-3x"></i>
         <div class="info">
           <h4>Tổng hóa đơn</h4>
-          <p><b>5</b></p>
+          <p><b>{{$countInv}}</b></p>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
       <i class="icon fa fa-users fa-3x"></i>
         <div class="info">
           <h4>Nhân sự</h4>
-          <p><b>10</b></p>
+          <p><b>{{$countUser}}</b></p>
         </div>
       </div>
     </div>
