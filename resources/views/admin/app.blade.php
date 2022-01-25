@@ -15,6 +15,12 @@
 
     {{-- Css của Imported Invoice --}}
     <style>
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
         body {
             color: #404E67;
             background: #F5F7FA;
@@ -130,14 +136,27 @@
         @yield('content')
     </main>
 
-    {{-- include scripts provider --}}
+    {{-- include scripts provider | script thêm dòng mới --}}
     @include('admin.provider.partials.scripts')
+
+    {{-- include scripts employee | script thêm dòng mới --}}
+    @include('admin.employee.partials.scripts')
+
+    {{-- script của imported invoice --}}
+    @include('admin.imported_invoice.partials.scripts')
+
     <script src="{{ asset('backend/assets/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
     <script src="{{ asset('backend/assets/js/plugins/pace.min.js') }}"></script>
 
+<<<<<<< HEAD
+
+
+</body>
+
+=======
     {{-- script của imported invoice --}}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -209,4 +228,5 @@
     var datePattern = year + '-' + month + '-' + todayDate;
     document.getElementById("date-picker").value = datePattern;
     </script>
+>>>>>>> c748621d9960030bb2dbc767609de31f7a1e72b2
 </html>

@@ -43,8 +43,6 @@
 
                                             </a>
                                         </button>
-
-
                                         <a class="edit " title="Edit" data-toggle="tooltip">
                                             <i class="fa fa-edit"></i>
                                         </a>

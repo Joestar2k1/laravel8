@@ -13,7 +13,11 @@ use PhpParser\Node\Expr\FuncCall;
 class AccountController extends Controller
 {
     public function loadAccount(){
-        $data =DB::table('users')->where('type','LIKE','%NV%')->paginate(2);
+        $data =DB::table('users')->paginate(3);
+        return view('admin.accounts.index',compact('data'));
+    }
+    public function loadAccountAdmin(){
+        $data =DB::table('users')->where('isAdmin',1)->paginate(3);
         return view('admin.accounts.index',compact('data'));
     }
 

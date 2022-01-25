@@ -23,7 +23,11 @@
              </a>
              <ul class="treeview-menu">
                  <li><a class="treeview-item" href="{{ route('admin.account') }}"><i
-                             class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a></li>
+                             class="icon fa fa-circle-o"></i>Tài khoản người dùng</a>
+                 </li>
+                 <li><a class="treeview-item" href="{{ route('admin.employee.index') }}"><i
+                             class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a>
+                 </li>
              </ul>
          </li>
          <li><a class="app-menu__item" href="{{ route('admin.product') }}"><i
@@ -32,8 +36,10 @@
                      class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lí hóa đơn</span><i
                      class="treeview-indicator fa fa-angle-right"></i></a>
              <ul class="treeview-menu">
-             <li><a class="treeview-item" href="{{ route('admin.invoice') }}"><i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng</a></li>
-                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng</a></li>
+                 <li><a class="treeview-item" href="{{ route('admin.invoice') }}"><i
+                             class="icon fa fa-circle-o"></i>Hóa đơn bán hàng</a></li>
+                 <li><a class="treeview-item" href=" {{ route('admin.imported_invoice.index') }}"><i
+                             class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng</a></li>
 
              </ul>
          </li>

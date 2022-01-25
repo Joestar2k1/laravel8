@@ -20,6 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('content');
             $table->integer('quantity');
             $table->dateTime('postedDate');
+            $table->integer('status');
             $table->timestamps();
         });
     }

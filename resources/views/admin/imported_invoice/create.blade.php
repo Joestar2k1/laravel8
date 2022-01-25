@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label for="" class="control-label col-md-3">Tổng tiền </label>
                         <div class="col-md-8">
-                            <input class="form-control" type="text" placeholder="Tổng tiền" />
+                            <input class="form-control" type="text" placeholder="Tổng tiền" disabled />
                         </div>
                     </div>
 
@@ -44,7 +44,7 @@
                         <div class="col-md-9">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="avaiabble" />Ok
+                                    <input class="form-check-input" type="radio" name="avaiabble" checked />Ok
                                 </label>
                             </div>
 
@@ -58,11 +58,11 @@
                     <div class="col-md-8 col-md-offset-3">
                         <a href="{{ route('admin.imported_invoice.createDetail') }}">
                             <button class="btn btn-primary" type="button">
-                                <i class="fas fa-fw fa-lg fa-check-circle"></i>Create imported invoice detail
+                                <i class="fa fa-fw fa-lg fa-check-circle"></i>Tạo
                             </button>
 
                         </a>
-                        <a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                        <a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Hủy</a>
 
                     </div>
                 </div>
