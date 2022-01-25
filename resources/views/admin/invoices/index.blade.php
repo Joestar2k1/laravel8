@@ -1,75 +1,93 @@
 @extends('admin.app')
 @section('title') Admin-Account @endsection
 @section('content')
-<div class="page-wrapper" >
-<div>
-    <h4>Danh sách các hóa đơn</h4>
-</div>
-<div class="page-breadcrumb bg-white">
-    <div class="row align-items-center">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <a class="btn btn-success">Create new</a>
-        </div>
+<div class="container">
+<div style="color:green;text-align:center">
+        <h3>Hóa đơn bán hàng</h3>
     </div>
-    <!-- /.col-lg-12 -->
+<div class="row">
+  <div class="col"> <label for="" class="form-label">Tìm theo ngày</label>
+        <input type="date" id="date-picker" class="form-control"  name="" value=""></div>
+  <div class="col">
+  <label for="" class="form-label">Tìm theo tên, mã hóa đơn</label>
+        <form class="d-flex" method="GET" action= "" >     
+            <input class="form-control me-2"  name="keyWord" type="text" placeholder="Search">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </form>
+  </div>
+</div>
 </div>
 <div class="container-fluid">
     <div class="container mt-3">
         <table class="table table-striped">
             <thead>
+
                 <tr>
                     <th>
                        Mã hóa đơn
                     </th>
                     <th>
-                        Người đặt
+                      Khách hàng
                     </th> 
                     <th>
                         Ngày tạo
-                    </th>   
-                    <th>
-                        Người nhận
-                    </th>   
-                    <th>
-                        Số điện thoại
-                    </th>       
-                    <th>
-                       Địa chỉ giao
-                    </th>     
+                    </th>                                                        
                     <th>
                         Tổng
                     </th>   
                     <th>
-                       Trạng thái
+                       Thanh toán
                     </th> 
                     <th>
-                      Thao tác
-                    </th>                                   
+                       Trạng thái
+                    </th> 
+                    <th></th>
+                    <th>
+                        Xem
+                    </th>
+                                            <th></th> <th></th>                
                 </tr>
             </thead>
             <tbody>   
-                @foreach($data as $item)
+                @foreach($invoices as $item)
                 <tr>                        
                    <td> {{$item->id}}</td>
                    <td> {{$item->fullName}}</td>
-                   <td> {{$item->dateCreated}}</td>
-                   <td> {{$item->shippingName}}</td>
-                   <td> {{$item->shippingPhone}}</td>
-                   <td> {{$item->shippingAddress}}</td>
+                   <td> {{$item->dateCreated}}</td>                           
                    <td> {{$item->total}}</td>
-                   <td> {{$item->status}}</td>
-                   <td>
-                        <a class="btn btn-success" >Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                   <td>   
+                      @if($item->isPaid ==1)
+                         <span>   <i class="fa fa-check" style="color:green" ></i>Ok</span>
+                        @endif
+                        @if($item->isPaid ==0)
+                         <span>   <i class="fa fa-close" style="color:red"></i>Chưa</span>
+                        @endif                    
                     </td>
-                
+                  
+                    <td>
+                        @if($item->status==1)
+                        <a class="btn btn-success" href="">Đã xác nhận</i></a>
+                        @endif
+                        @if($item->status==0)
+                        <a class="btn btn-warning" href="">Chờ xác nhận</i></a>
+                        @endif
+                    </td>
+                    <th></th>
+                    <td>
+                        <a href="{{route('admin.invoice.details',$item->id)}}">  <i class="fa fa-eye"></i></a>
+                    </td>
+                   <td>
+                        <a class="btn btn-success" style="color:white" >Edit</a>
+                       
+                    </td>
+                    <td>
+                    <a class="btn btn-danger" style="color:white">Delete</a>
+                    </td>
                 </tr>    
                 @endforeach           
             </tbody>
-            {{$data->links()}}
+            {{$invoices->links()}}
         </table>
     </div>
 </div>
-</div>
-
 @endsection

@@ -3,11 +3,14 @@
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<div class="container">
+  <div class="row">
+  <div class="col"> </div>
+  <div class="col">
+  <div class="container">
   <form action="{{route('admin.product.create.index')}}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="mb-3 mt-3">
-      <label for="name" class="form-label">Tên đăng nhập:</label>
+      <label for="name" class="form-label">Tên sản phẩm:</label>
       <input type="text" class="form-control" id="name" placeholder="Enter tên sản phẩm" name="name" required>
     </div>
     <div class="mb-3">
@@ -38,8 +41,12 @@
         <label for="description">Mô tả:</label>
         <textarea class="form-control" rows="3" id="description" name="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Tạo mới</button>
 </form>
 </div>
+  </div>
+  <div class="col"></div>
+</div>
+
 
 @endsection 

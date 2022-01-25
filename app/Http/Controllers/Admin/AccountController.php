@@ -29,11 +29,14 @@ class AccountController extends Controller
         }
     }
 
-    public function Search(Request $request){
+    public function searchAccount(Request $request){
         if(isset($_GET['keyWord'])){
             $searchText = $_GET['keyWord'];
-            $data = DB::table('users')->where('name','LIKE','%'.$searchText.'%')->paginate(4);
-            return view('admin.products.index',compact('data'));
+            $data = DB::table('users')->where('fullName','LIKE','%'.$searchText.'%')
+            ->where('type','LIKE','%NV%')
+            ->paginate(4);
+            $data ->appends($request->all());
+            return view('admin.accounts.index',compact('data'));
         }else{
             return view('admin.dashboard');
         }

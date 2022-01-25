@@ -15,6 +15,7 @@ class Invoice extends Model
         'shippingAddress',
         'shippingPhone',
         'dateCreated',
+        'isPaid',
         'total',
         'status',
     ];

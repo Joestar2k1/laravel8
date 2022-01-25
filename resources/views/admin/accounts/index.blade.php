@@ -44,12 +44,11 @@
                         <th>
                             Email
                         </th>
+                        <th></th>
                         <th>
                             Họ tên
                         </th>
-                        <th>
-                            Địa chỉ
-                        </th>
+                     
                         <th>
                             Số điện thoại
                         </th>
@@ -59,12 +58,7 @@
                         <th>
                             Trạng thái
                         </th>
-                        <th>
-                            Sửa
-                        </th>
-                        <th>
-                            Xóa
-                        </th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -73,13 +67,23 @@
                             <td> {{ $item->id }}</td>
                             <td> {{ $item->username }}</td>
                             <td> {{ $item->email }}</td>
+                            <td></td>
                             <td> {{ $item->fullName }}</td>
-                            <td> {{ $item->address }}</td>
+                          
                             <td> {{ $item->phone }}</td>
                             <td> <img style="background:white"
+<<<<<<< HEAD
                                     src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}"
                                     class="rounded" alt="Ảnh" width="70" height="70"> </td>
                             <td> {{ $item->status }}</td>
+=======
+                                    src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}" class="rounded"
+                                    alt="Ảnh" width="70" height="70"> </td>
+                           @if( $item->status == 1)
+                           <td>  Hoạt động   </td> 
+                                @endif
+                            
+>>>>>>> c748621d9960030bb2dbc767609de31f7a1e72b2
                             <td>
                                 <a class="btn btn-success">Edit</a>
                             </td>
@@ -93,6 +97,8 @@
             {{ $data->links() }}
         </div>
     </div>
-    </div>
+  </div>
+</div>
+
 
 @endsection

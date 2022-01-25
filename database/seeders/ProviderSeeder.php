@@ -18,8 +18,9 @@ class ProviderSeeder extends Seeder
         DB::table('providers')->insert([
             [
                 'id' =>  'NCC000',
-                'name' => 'Nhà cung cấp trái cây',
+                'name' => 'Công ty TNHH trái cây',
                 'address' =>  'Tp.HCM',
+                'type' => 'Trái cây',
                 'phone' => 2132323213,
                 'status' => true,
             ],
