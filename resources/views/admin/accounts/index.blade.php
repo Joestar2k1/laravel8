@@ -77,8 +77,8 @@
                             <td> {{ $item->address }}</td>
                             <td> {{ $item->phone }}</td>
                             <td> <img style="background:white"
-                                    src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}" class="rounded"
-                                    alt="Ảnh" width="70" height="70"> </td>
+                                    src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}"
+                                    class="rounded" alt="Ảnh" width="70" height="70"> </td>
                             <td> {{ $item->status }}</td>
                             <td>
                                 <a class="btn btn-success">Edit</a>

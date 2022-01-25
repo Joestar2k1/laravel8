@@ -15,7 +15,7 @@ class CreateImportedInvoicesTable extends Migration
     {
         Schema::create('imported_invoices', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('userID');
+            $table->string('employeeID');
             $table->string('providerID');
             $table->integer('totalPrice');
             $table->integer('totalQuantity');

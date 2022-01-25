@@ -16,7 +16,7 @@ class CreateVouchersTable extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('code');
-            $table->string('userID');
+            $table->string('employeeID');
             $table->string('productID');
             $table->string('name');
             $table->integer('sale');

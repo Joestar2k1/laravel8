@@ -104,29 +104,22 @@
             </ul>
         </li>
         <li class="dropdown">
-        <a
-            class="app-nav__item"
-            href="#"
-            data-toggle="dropdown"
-            aria-label="Open Profile Menu"
-            ><i class="fa fa-user-circle" aria-hidden="true"></i></a>
-        <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li>
-            <a class="dropdown-item" href="page-user.html"
-                ><i class="fa fa-cog" aria-hidden="true"></i> Settings</a
-            >
-            </li>
-            <li>
-            <a class="dropdown-item" href="{{route('admin.account.profile')}}"
-                ><i class="fa fa-user" aria-hidden="true"></i> Profile</a
-            >
-            </li>
-            <li>
-            <a class="dropdown-item" href="{{route('admin.logout')}}"
-                ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a
-            >
-            </li>
-        </ul>
+            <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
+                    class="fa fa-user-circle" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                <li>
+                    <a class="dropdown-item" href="page-user.html"><i class="fa fa-cog" aria-hidden="true"></i>
+                        Settings</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ route('admin.account.profile') }}"><i class="fa fa-user"
+                            aria-hidden="true"></i> Profile</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="fa fa-sign-out"
+                            aria-hidden="true"></i> Logout</a>
+                </li>
+            </ul>
         </li>
     </ul>
     <!-- User Menu-->

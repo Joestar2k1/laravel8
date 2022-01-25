@@ -23,7 +23,11 @@
              </a>
              <ul class="treeview-menu">
                  <li><a class="treeview-item" href="{{ route('admin.account') }}"><i
-                             class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a></li>
+                             class="icon fa fa-circle-o"></i>Tài khoản người dùng</a>
+                 </li>
+                 <li><a class="treeview-item" href="{{ route('admin.employee.index') }}"><i
+                             class="icon fa fa-circle-o"></i>Tài khoản nhân viên</a>
+                 </li>
              </ul>
          </li>
          <li><a class="app-menu__item" href="{{ route('admin.product') }}"><i
