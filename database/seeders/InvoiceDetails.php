@@ -29,9 +29,27 @@ class InvoiceDetails extends Seeder
             ],
             [
                 'id' => 3,
-                'invoiceID' => 'in202201232',
+                'invoiceID' => 'in202201222',
                 'productID' => 'f180120022pr5',
                 'quantity' => '6',
+            ],
+            [
+                'id' => 4,
+                'invoiceID' => 'in202201223',
+                'productID' => 'f180120022pr2',
+                'quantity' => '7',
+            ],
+            [
+                'id' => 5,
+                'invoiceID' => 'in202201223',
+                'productID' => 'f180120022pr1',
+                'quantity' => '2',
+            ],
+            [
+                'id' => 6,
+                'invoiceID' => 'in202201224',
+                'productID' => 'f180120022pr2',
+                'quantity' => '2',
             ]
             ]);
     }

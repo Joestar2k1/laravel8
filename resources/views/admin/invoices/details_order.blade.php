@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="text-right mb-3">
-                    <a  href="{{route('admin.invoice')}}" class="btn btn-primary">Quay lại</a>
+                <a  href="{{route('admin.invoice.orderTracking')}}" class="btn btn-primary">Quay lại</a>
                 </div>
             </div>
             @endforeach

@@ -57,31 +57,7 @@ class EmployeeSeeder extends Seeder
                  'avatar' => 'avatar3.png',
                 'status' => 1,
             ],
-            [
-                'id' => 'NV202201254',
-                'username' => 'layer04',
-                'password' => Hash::make('81231290'),
-                'email' => 'thanhle@gmail.com',
-                'fullName' => 'Nguyễn Thành Lễ',
-                'address' => 'Quận 5',
-                'type' => 'Khách hàng',
-                'phone' => '0123456789',
-                'salary' =>10000000,
-                 'avatar' => 'xyz.jpg',
-                'status' => 1,
-            ], [
-                'id' => 'NV202201255',
-                'username' => 'layer05',
-                'password' => Hash::make('Minhlong@1902'),
-                'email' => 'minhlong@gmail.com',
-                'fullName' => 'Nguyễn Vũ Minh Long',
-                'address' => 'TP Hồ Chí minh',
-                'type' => 'Khách hàng',
-                'phone' => '0123456789',
-                'salary' =>10000000,
-                 'avatar' => 'avatar1.png',
-                'status' => 1,
-            ],
+           
         ]);
     }
 }
