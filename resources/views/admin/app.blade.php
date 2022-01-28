@@ -12,7 +12,6 @@
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css') }}" />
-
     {{-- Css của Imported Invoice --}}
     <style>
         th,
@@ -66,7 +65,7 @@
 
         table.table tr th,
         table.table tr td {
-            border-color: #e9e9e9;
+            border-color:#a886b9;
         }
 
         table.table th i {
@@ -151,82 +150,8 @@
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
     <script src="{{ asset('backend/assets/js/plugins/pace.min.js') }}"></script>
 
-<<<<<<< HEAD
 
 
 </body>
 
-=======
-    {{-- script của imported invoice --}}
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-            var actions = $("table td:last-child").html();
-            // Append table with add row form on add new button click
-            $(".add-new-imported-invoice-detail").click(function() {
-                $(this).attr("disabled", "disabled");
-                var index = $("table tbody tr:last-child").index();
-                var row = '<tr>' +
-                    '<td><input type="text" class="form-control" name="importedinvoice_id" id="importedinvoice_id"></td>' +
-                    '<td><input type="text" class="form-control" name="product_id" id="product_id"></td>' +
-                    '<td><input type="text" class="form-control" name="product_name" id="product_name"></td>' +
-                    '<td><input type="text" class="form-control" name="quantity" id="quantity"></td>' +
-                    '<td><input type="text" class="form-control" name="price" id="price"></td>' +
-                    '<td><input type="text" class="form-control" name="unit" id="unit"></td>' +
-                    '<td>' + actions + '</td>' +
-                    '</tr>';
-                $("table").append(row);
-                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-            // Add row on add button click
-            $(document).on("click", ".add", function() {
-                var empty = false;
-                var input = $(this).parents("tr").find('input[type="text"]');
-                input.each(function() {
-                    if (!$(this).val()) {
-                        $(this).addClass("error");
-                        empty = true;
-                    } else {
-                        $(this).removeClass("error");
-                    }
-                });
-                $(this).parents("tr").find(".error").first().focus();
-                if (!empty) {
-                    input.each(function() {
-                        $(this).parent("td").html($(this).val());
-                    });
-                    $(this).parents("tr").find(".add, .edit").toggle();
-                    $(".add-new").removeAttr("disabled");
-                }
-            });
-            // Edit row on edit button click
-            $(document).on("click", ".edit", function() {
-                $(this).parents("tr").find("td:not(:last-child)").each(function() {
-                    $(this).html('<input type="text" class="form-control" value="' + $(this)
-                        .text() + '">');
-                });
-                $(this).parents("tr").find(".add, .edit").toggle();
-                $(".add-new").attr("disabled", "disabled");
-            });
-            // Delete row on delete button click
-            $(document).on("click", ".delete", function() {
-                $(this).parents("tr").remove();
-                $(".add-new").removeAttr("disabled");
-            });
-        });
-    </script>
-</body> 
-<script>
-    var date = new Date();
-    var year = date.getFullYear():
-    var month = date.getMonth()+1;
-    var todayDate = String(date.getDate ()).padStart(2, '0');
-    var datePattern = year + '-' + month + '-' + todayDate;
-    document.getElementById("date-picker").value = datePattern;
-    </script>
->>>>>>> c748621d9960030bb2dbc767609de31f7a1e72b2
 </html>

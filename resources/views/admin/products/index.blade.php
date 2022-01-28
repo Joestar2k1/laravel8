@@ -32,7 +32,7 @@
 </div>
 <div class="container-fluid">
     <div class="container mt-3">
-        <table class="table table-striped">
+        <table class="table table-bordered">
             <thead>
                 <tr>                 
                     <th>
