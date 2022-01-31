@@ -1,39 +1,13 @@
 @extends('admin.app')
 @section('title') Theo dõi hóa đơn @endsection
 @section('content')
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link  href="{{asset('backend/assets/css/order_tracking.css')}}" rel="stylesheet">
 <div class="container">
 <div style="color:green;text-align:center">
         <h3>Danh sách hóa đơn đang theo dõi</h3>
 </div>
 <div style="height:50px"></div>
-<div class="row">
-  <div class="col"></div>
-  <div class="col"> 
-      <form class="d-flex" method="GET" action= "" >     
-            <input class="form-control me-2"  name="keyWord" type="text" placeholder="vd:Mã HĐ..">
-            <button class="btn btn-success" type="submit">Tìm kiếm</button>
-        </form> </div>
-  <div class="col">
-        <div class="col-sm-4 text-white"> 
-        <div class="dropdown dropend">
-            <button type="button" class="btn btn-success dropdown-toggle"   data-bs-toggle="dropdown">
-                Xem hóa đơn
-            </button>
-            <ul class="dropdown-menu">             
-                <li><a class="dropdown-item" href="">Tất cả</a></li>          
-                <li><a class="dropdown-item" href="">Mới nhất</a></li>          
-                <li><a class="dropdown-item" href="">Đang giao hàng</a></li> 
-                <li><a class="dropdown-item" href="">Chờ xác nhận</a></li>                   
-            </ul>
-        </div>
-        
-    </div>
-  </div>
-</div>
-<div style="height:50px"></div>
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="container mt-3">
         <table class="table table-bordered">
             <thead>
@@ -122,5 +96,37 @@
         </table>
      
     </div>
+</div> -->
+
+<div class="col-lg-9 my-lg-0 my-1">
+            <div id="main-content" class="bg-white border">
+                <div class="d-flex my-4 flex-wrap">
+                    <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png" alt="">
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="tag">Mới</div>
+                            <div class="ms-auto number">10</div>
+                        </div>
+                    </div>
+                    <div class="box me-4 my-1 bg-light"> 
+                        <img src="https://www.freepnglogos.com/uploads/tick-png/check-mark-tick-vector-graphic-21.png" alt="">
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="tag">Đã xác nhận</div>
+                            <div class="ms-auto number">10</div>
+                        </div>
+                    </div>
+                    <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/logo-ifood-png/happy-ifood-logo-delivery-ifood-transparent-21.png" alt="">
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="tag">Đang vận chuyển</div>
+                            <div class="ms-auto number">10</div>
+                        </div>
+                    </div>
+                    <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/thank-you-png/thank-you-png-testimonials-calm-order-professional-home-organizing-29.png" alt="">
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="tag">Thành công</div>
+                            <div class="ms-auto number">10</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>
 @endsection

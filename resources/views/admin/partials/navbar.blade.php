@@ -1,10 +1,11 @@
  <!-- Sidebar menu-->
+
  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
  <aside class="app-sidebar">
-     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="">
+     <div class="app-sidebar__user">
+         <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avaters/')}}./{{Session::get('user')->avatar}}" width="40px" height="40px">
          <div>
-             <p class="app-sidebar__user-name">John Doe</p>
-             <p class="app-sidebar__user-designation">Frontend Developer</p>
+             <p class="app-sidebar__user-designation">{{Session::get('user')->type}}</p>
          </div>
      </div>
      </div>

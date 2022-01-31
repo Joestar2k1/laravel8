@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -25,14 +25,19 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // $this->validate($request, [
-        // 'email' => 'required|email',
-        // 'password' => 'required|min:6'
-        // ]);
+        $this->validate($request, [
+        'email' => 'required|email',
+        'password' => 'required|min:6'
+        ]);
         if (Auth::guard('admin')->attempt([
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'))) {
+            $user = DB::table('employees')->where('email',$request->email)->get();
+            foreach($user as $item){
+                // if(Session::has('user')){
+                    Session::put('user',$item);
+            }
             return redirect()->route('admin.dashboard');
         }
         return back()->withInput($request->only('email', 'remember'));

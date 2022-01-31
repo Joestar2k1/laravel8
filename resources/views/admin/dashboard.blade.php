@@ -4,7 +4,7 @@
   <div class="app-title">
     <div>
       <h1> Dashboard</h1>  
-        <p>Xin chào </p>
+        <p>Xin chào  {{Session::get('user')->fullName}} </p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
      
