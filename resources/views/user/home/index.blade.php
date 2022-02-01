@@ -1,5 +1,5 @@
 @extends('user.layout')
-@section('title') Fshop @endsection
+@section('title') Trang chủ @endsection
 @section('content')
 	<!-- home page slider -->
 	<div class="homepage-slider">
@@ -120,36 +120,29 @@
 			</div>
 
 			<div class="row">
+				@foreach($products as $item)
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="{{route('single-product')}}"><img src="{{asset('frontend/assets/img/products/product-img-1.jpg')}}" alt=""></a>
+							<a href="">
+								<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
+							</a>
 						</div>
-						<h3>Dâu tây</h3>
-						<p class="product-price"><span> Kg</span> 85$ </p>
-						<a href="{{route('cart')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm giỏ hàng</a>
+						<h3>{{$item->name}}</h3>
+						<p class="product-price"><span>{{$item->unit}}</span>{{number_format($item->price)}}</p>
+						@if(Session::get('customers') == null)
+						<a href="{{route('user.login')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm giỏ hàng</a>
+						@endif
+						@if(Session::get('customers') != null)
+							<a href="{{route('user.addToCart',$item->id)}}" class="cart-btn">
+								<i class="fas fa-shopping-cart"></i> Thêm giỏ hàng
+							</a>
+						@endif
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="{{route('single-product')}}"><img src="{{asset('frontend/assets/img/products/product-img-2.jpg')}}" alt=""></a>
-						</div>
-						<h3>Nho</h3>
-						<p class="product-price"><span>Kg</span> 70$ </p>
-						<a href="{{route('cart')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="{{route('single-product')}}"><img src="{{asset('frontend/assets/img/products/product-img-3.jpg')}}" alt=""></a>
-						</div>
-						<h3>Chanh</h3>
-						<p class="product-price"><span>Kg</span> 35$ </p>
-						<a href="{{route('cart')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</a>
-					</div>
-				</div>
+				@endforeach
+				{{$products->links()}}
+				
 			</div>
 		</div>
 	</div>
@@ -179,7 +172,7 @@
                     <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
                     <!--Countdown Timer-->
                     <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                	<a href="{{route('single-product')}}" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                	<a href="" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
         </div>
