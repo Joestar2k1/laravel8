@@ -12,7 +12,7 @@
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css') }}" />
-    {{-- Css của Imported Invoice --}}
+    <!-- {{-- Css của Imported Invoice --}}
     <style>
         th,
         td {
@@ -123,7 +123,7 @@
             display: none;
         }
 
-    </style>
+    </style> -->
 
     <title>@yield('title')</title>
 </head>

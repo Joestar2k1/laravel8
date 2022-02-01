@@ -1,5 +1,5 @@
 @extends('admin.app')
-@section('title') Admin-product @endsection
+@section('title') Sản phẩm @endsection
 @section('content')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -32,7 +32,7 @@
 </div>
 <div class="container-fluid">
     <div class="container mt-3">
-        <table class="table table-bordered">
+        <table class="table table-hover">
             <thead>
                 <tr>                 
                     <th>
@@ -69,7 +69,7 @@
                 <tr>                        
                    <td> {{$item->name}}</td>
                    <td> {{$item->stock}}</td>
-                   <td> {{$item->price}}</td>
+                   <td> {{number_format($item->price)}}</td>
                    <td> {{$item->description}}</td>
                   
                    <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$item->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>               

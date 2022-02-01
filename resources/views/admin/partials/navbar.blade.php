@@ -35,10 +35,19 @@
         </ul>
          </li>
          <li>
-             <a class="app-menu__item" href="{{ route('admin.product') }}">
+            @if(Session::get('user')->type == 'admin'||Session::get('user')->type == 'NV kiểm kho')
+            <a class="app-menu__item" href="{{ route('admin.product') }}">
                  <i class="app-menu__icon fa fa-pie-chart"></i>
                  <span class="app-menu__label">Sản phẩm</span>
             </a>
+            @endif
+            @if(Session::get('user')->type != 'admin')
+            <a class="app-menu__item" href="">
+                 <i class="app-menu__icon fa fa-pie-chart"></i>
+                 <span class="app-menu__label">Sản phẩm</span>
+            </a>
+            @endif
+           
         </li>
          <li class="treeview">
              <a class="app-menu__item" href="#" data-toggle="treeview">
@@ -46,7 +55,9 @@
                 <span class="app-menu__label">Quản lí hóa đơn</span>
                 <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
+          
              <ul class="treeview-menu">
+                @if(Session::get('user')->type == 'NV thanh toán'|| Session::get('user')->type == 'admin')
                 <li>
                      <a class="treeview-item" href=" {{ route('admin.invoice.orderTracking') }}">
                          <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
@@ -62,7 +73,24 @@
                          <i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng
                     </a>
                 </li>
-
+                @endif
+                @if(Session::get('user')->type != 'NV thanh toán'|| Session::get('user')->type != 'admin')
+                <li>
+                     <a class="treeview-item" href="">
+                         <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
+                    </a>
+                </li>
+                 <li>
+                     <a class="treeview-item" href="">
+                         <i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng
+                        </a>
+                </li>
+                <li>
+                     <a class="treeview-item" href="">
+                         <i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng
+                    </a>
+                </li>
+                @endif
              </ul>
          </li>
 
