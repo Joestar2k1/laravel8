@@ -27,7 +27,7 @@
         <i class="icon fa fa-pie-chart fa-3x"></i>
         <div class="info">
           <h4>Doanh Thu</h4>
-          <p><b>25</b></p>
+          <p><b></b></p>
         </div>
       </div>
     </div>

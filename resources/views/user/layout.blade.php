@@ -30,7 +30,7 @@
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
-
+	@yield('profile')
 </head>
 <body>
 	

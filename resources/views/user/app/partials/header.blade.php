@@ -22,6 +22,9 @@
 								<li><a href="about.html">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">
+										<a class="shopping-cart" href="{{route('user.profile')}}">
+											<i class="fa fa-user"></i>
+										</a>
 										<a class="shopping-cart" href="{{route('user.cart')}}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 										@if(Session::get('customers') != null)			

@@ -124,7 +124,7 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="">
+							<a href="{{route('user.home.details',$item->id)}}">
 								<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
 							</a>
 						</div>

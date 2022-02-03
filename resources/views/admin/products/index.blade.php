@@ -3,7 +3,17 @@
 @section('content')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<div class="app-title">
+    <div>
+      <h1>Quản lí sản phẩm</h1>  
+        <p>Xin chào {{Session::get('user')->fullName}} </p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+     
+      <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
+      <li class="breadcrumb-item"><a href="#">Quản lí sản phẩm</a></li>
+    </ul>
+  </div>
 <div class="row">
 <div class="col-sm-4  text-white">
         <a href="{{route('admin.product.create.index')}}" class="btn btn-success">Tạo sản phẩm</a>

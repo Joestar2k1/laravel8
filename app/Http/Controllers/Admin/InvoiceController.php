@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Models\Invoice;
 class InvoiceController extends Controller
 {
     public function showInvoice(){
-        $invoices = DB::table('invoices')
+         DB::table('invoices')
         ->join('employees','invoices.employeeID','=','employees.id')
         ->join('users','invoices.userID','=','users.id')
         ->select(DB::raw('employees.fullName as nv'),'users.fullName','invoices.id','invoices.dateCreated','total','invoices.status','invoices.shippingAddress','invoices.isPaid')
