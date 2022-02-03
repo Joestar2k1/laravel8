@@ -28,7 +28,11 @@
 						</div>
 						<h3>{{$item->name}}</h3>
 						<p class="product-price"><span>{{$item->unit}}</span> {{number_format($item->price)}} </p>
-						<a href="" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						@if(Session::get('customers') != null)
+							<a href="{{route('user.addToCart',$item->id)}}" class="cart-btn">
+								<i class="fas fa-shopping-cart"></i> Thêm giỏ hàng
+							</a>
+						@endif
 					</div>
 				</div>
 				@endforeach

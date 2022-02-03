@@ -10,10 +10,14 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index(){
-        $countInv = Invoice::All()->count();
+        $countInv = Invoice::where('status',-1)->count();
         $countUser = DB::table('employees')
         ->where('type','LIKE','%NV%')->count();
-        return view('admin.dashboard',['countInv'=> $countInv,'countUser'=>$countUser]);
+        $sales = DB::table('invoices')
+        ->where('status',-1)
+        ->select(DB::raw('SUM(invoices.total) as sales'))
+        ->get();
+        return view('admin.dashboard',['countInv'=> $countInv,'countUser'=>$countUser,'sales'=>$sales]);
     }
     
 }

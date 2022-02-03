@@ -16,24 +16,6 @@
                  <span class="app-menu__label">Dashboard</span>
              </a>
          </li>
-         <li class="treeview">
-             <a class="app-menu__item" href="#" data-toggle="treeview">
-                 <i class="fa fa-users" aria-hidden="true"></i></i>
-                 <span class="app-menu__label">Quản lí nhân sự</span>
-                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
-             </a>
-        <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{ route('admin.account') }}"><i
-                             class="icon fa fa-circle-o"></i>Tài khoản người dùng</a>
-            </li>
-            <li>
-                <a class="treeview-item" href="{{ route('admin.employee.index') }}">
-                    <i class="icon fa fa-circle-o"></i>
-                    Tài khoản nhân viên
-                </a>
-            </li>
-        </ul>
-         </li>
          <li>
             <a class="app-menu__item" href="{{ route('admin.product') }}">
                  <i class="app-menu__icon fa fa-pie-chart"></i>
@@ -48,17 +30,6 @@
             </a>
           
              <ul class="treeview-menu">
-              
-                <li>
-                     <a class="treeview-item" href=" {{ route('admin.invoice.orderTracking') }}">
-                         <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
-                    </a>
-                </li>
-                 <li>
-                     <a class="treeview-item" href="{{ route('admin.invoice') }}">
-                         <i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng
-                        </a>
-                </li>
                 <li>
                      <a class="treeview-item" href=" {{ route('admin.imported_invoice.index') }}">
                          <i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng

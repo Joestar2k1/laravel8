@@ -15,5 +15,5 @@ class HomeController extends Controller
         $products = DB::table('products')->paginate(6);
         return view('user.home.shop',compact('products'));
     }
-
+    
 }
