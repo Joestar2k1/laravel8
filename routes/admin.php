@@ -61,8 +61,6 @@ Route::group(['prefix' => '/'], function () {
            
                Route::get('/order-tracking', [InvoiceController::class, 'orderTracking'])->name('admin.invoice.orderTracking');
 
-               Route::get('/details-order-tracking/{invoiceID}', [InvoiceController::class, 'detailsOrderTracking'])->name('admin.invoice.details_order');
-
                Route::get('/confirmStatus/{invoiceID}', [InvoiceController::class, 'handleConfirmStatus'])->name('admin.invoice.confirmStatus');
 
         });
