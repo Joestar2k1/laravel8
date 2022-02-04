@@ -17,7 +17,7 @@ class HomeController extends Controller
         ->where('status',-1)
         ->select(DB::raw('SUM(invoices.total) as sales'))
         ->get();
-        return view('admin.dashboard',['countInv'=> $countInv,'countUser'=>$countUser,'sales'=>$sales]);
+        return view('admin.dashboard',['countInv'=> $countInv,'countUser'=>$countUser,'sales'=>$sales[0]->sales]);
     }
     
 }

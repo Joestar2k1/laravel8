@@ -1,5 +1,5 @@
 @extends('admin.app')
-@section('title') Admin @endsection
+@section('title') Dashboard @endsection
 @section('content')
   <div class="app-title">
     <div>
@@ -27,7 +27,7 @@
         <i class="icon fa fa-pie-chart fa-3x"></i>
         <div class="info">
           <h4>Doanh Thu</h4>
-          <p><b></b></p>
+          <p><b>{{number_format($sales)}}VND</b></p>
         </div>
       </div>
     </div>

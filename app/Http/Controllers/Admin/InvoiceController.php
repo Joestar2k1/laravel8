@@ -18,12 +18,34 @@ class InvoiceController extends Controller
         return view('admin.invoices.index',compact('invoices'));
     }
     public function orderTracking(){
-        $invoices = DB::table('invoices')
-        // ->join('employees','invoices.employeeID','=','employees.id')
+        $countWaitingToAccept = DB::table('invoices')
         ->join('users','invoices.userID','=','users.id')
-        ->select('invoices.*','users.fullName')
-        ->whereBetween('invoices.status',[1,5])->get();
-        return view('admin.invoices.order_tracking',compact('invoices'));
+        ->where('invoices.status',0)
+        ->select(DB::raw('COUNT(invoices.id) as SL'))
+        ->get();
+        $countConfirmed = DB::table('invoices')
+        ->join('users','invoices.userID','=','users.id')
+        ->where('invoices.status',1)
+        ->select(DB::raw('COUNT(invoices.id) as SL'))
+        ->get();
+        $countDelivery = DB::table('invoices')
+        ->join('users','invoices.userID','=','users.id')
+        ->where('invoices.status',2)
+        ->select(DB::raw('COUNT(invoices.id) as SL'))
+        ->get();
+        $countSuccess = DB::table('invoices')
+        ->join('users','invoices.userID','=','users.id')
+        ->where('invoices.status',-1)
+        ->select(DB::raw('COUNT(invoices.id) as SL'))
+        ->get();
+        return view('admin.invoices.order_tracking',
+            [
+                'WaitingToAccept'=>$countWaitingToAccept[0]->SL,
+                'Confirmed'=>$countConfirmed[0]->SL,
+                'Delivery'=>$countDelivery[0]->SL,
+                'Success'=>$countSuccess[0]->SL,            
+            ]    
+        );
     }
     public function detailsInvoice($invoiceID){
         $invoices = DB::table('invoices')

@@ -9,7 +9,10 @@
     width: 170px;
     height: 90px;
 }
-
+#main-content .box .my-eye {
+    display: flex;
+    justify-content: space-between;
+}
 #main-content .box img {
     width: 40px;
     height: 40px;
