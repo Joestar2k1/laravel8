@@ -1,17 +1,11 @@
  <!-- Sidebar menu-->
  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
  <aside class="app-sidebar">
-     <div class="app-sidebar__user"><img width="70px" height="60px"
-        src="
-
-        {{ asset('backend/assets/img/avatar/avatar5.jpg') }}
-
-        " alt="">
+     <div class="app-sidebar__user"><img "src="" alt="">
          <div>
-             <img width="70px" height="60px" src="{{ Session::get('empAvatar_session') }}" alt="">
-             <p class="app-sidebar__user-name">{{ Session::get('empID_session') }}</p>
-             <p class="app-sidebar__user-name">{{ Session::get('empFullName_session') }}</p>
-             <p class="app-sidebar__user-designation">Vị trí: {{ Session::get('empType_session') }}</p>
+             <p class="app-sidebar__user-name">{{ Session::get('emp')->id }}</p>
+             <p class="app-sidebar__user-name">{{ Session::get('emp')->fullName }}</p>
+             <p class="app-sidebar__user-designation">Vị trí: {{ Session::get('emp')->type }}</p>
          </div>
      </div>
      </div>

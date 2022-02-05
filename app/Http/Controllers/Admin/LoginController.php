@@ -35,42 +35,12 @@ class LoginController extends Controller
             'password' => $request->password,
         ], $request->get('remember'))) {
 
-            $emp_id  = DB::table('employees')
-            ->select('id')
-            ->where('email',$request->email)
-            ->first();
 
-            $empID = $emp_id->id;
-            Session::put('empID_session', $empID);
 
-            $emp_type  = DB::table('employees')
-            ->select('type')
-            ->where('email',$request->email)
-            ->first();
 
-             $empType = $emp_type->type;
-             Session::put('empType_session', $empType);
-
-             $emp_fullName  = DB::table('employees')
-            ->select('fullName')
-            ->where('email',$request->email)
-            ->first();
-
-             $empFullName = $emp_fullName->fullName;
-             Session::put('empFullName_session', $empFullName);
-
-             $emp_Avatar = DB::table('employees')
-             ->select('avatar')
-             ->where('email',$request->email)
-             ->first();
-
-             $empAvatar = $emp_Avatar->avatar;
-             Session::put('empAvatar_session', $empAvatar);
-             dd($empAvatar);
-
-            $user = DB::table('employees')->where('email',$request->email)->get();
-             foreach($user as $item){
-                    Session::put('user',$item);
+            $emp = DB::table('employees')->where('email',$request->email)->get();
+             foreach($emp as $item){
+                    Session::put('emp',$item);
              }
 
             return redirect()->route('admin.dashboard');
