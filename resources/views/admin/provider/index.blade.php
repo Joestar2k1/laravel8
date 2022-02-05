@@ -33,7 +33,11 @@
                             <td> {{ $item->name }}</td>
                             <td> {{ $item->address }}</td>
                             <td> {{ $item->phone }}</td>
-                            <td> {{ $item->status }}</td>
+                            <td>
+                                @if ( $item->status ==1)
+                                <span class="badge badge-pill badge-success">Active</span>
+                                @endif
+                            </td>
                             <td>
                                 <button class="add fa fa-plus" type="submit">
                                     <a class="add" title="Add" data-toggle="tooltip">

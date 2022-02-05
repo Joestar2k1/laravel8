@@ -26,13 +26,14 @@
 
 <body class=" app sidebar-mini rtl">
     @include('admin.partials.header')
-    @if(Session::get('user')->type == 'admin')
+    {{-- @include('admin.partials.navbar') --}}
+    @if(Session::get('emp')->type == 'admin')
         @include('admin.partials.navbar')
     @endif
-    @if(Session::get('user')->type == 'NV thanh toán')
+    @if(Session::get('emp')->type == 'NV thanh toán')
         @include('admin.partials.navbar_payment')
     @endif
-    @if(Session::get('user')->type == 'NV kiểm kho')
+    @if(Session::get('emp')->type == 'NV kiểm kho')
         @include('admin.partials.navbar_inventory')
     @endif
     <main class="app-content">

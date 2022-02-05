@@ -50,7 +50,11 @@
                                 <img width="70px" height="60px"
                                     src=" {{ asset('backend/assets/img/avatar/' . $item->avatar) }} " alt="">
                             </td>
-                            <td> {{ $item->status }}</td>
+                            <td>
+                                @if ( $item->status ==1)
+                                <span class="badge badge-pill badge-success">Active</span>
+                                @endif
+                            </td>
 
                             <td>
                                 <button class="add fa fa-plus" type="submit">

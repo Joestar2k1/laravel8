@@ -35,7 +35,11 @@
                         <td> {{ $item->totalQuantity }}</td>
                         <td> {{ $item->totalPrice }}</td>
                         <td> {{ $item->importedDate }}</td>
-                        <td> {{ $item->status }}</td>
+                        <td>
+                            @if ( $item->status ==1)
+                            <span class="badge badge-pill badge-success">Active</span>
+                            @endif
+                        </td>
                         <td>
                             <button type="button" class="btn btn-primary">
                                 <a style="color:white" href="{{ route('admin.imported_invoice.create_detail_view') }}">

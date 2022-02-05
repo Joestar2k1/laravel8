@@ -5,7 +5,7 @@
 
      <div class="app-sidebar__user"><img "src="" alt="">
          <div>
-          <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avaters/')}}./{{Session::get('user')->avatar}}" width="40px" height="40px">
+          <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avatar/')}}./{{Session::get('emp')->avatar}}" width="40px" height="40px">
              <p class="app-sidebar__user-name">{{ Session::get('emp')->id }}</p>
              <p class="app-sidebar__user-name">{{ Session::get('emp')->fullName }}</p>
              <p class="app-sidebar__user-designation">Vị trí: {{ Session::get('emp')->type }}</p>
@@ -50,9 +50,9 @@
                 <span class="app-menu__label">Quản lí hóa đơn</span>
                 <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
-          
+
              <ul class="treeview-menu">
-              
+
                 <li>
                      <a class="treeview-item" href=" {{ route('admin.invoice.orderTracking') }}">
                          <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
@@ -68,7 +68,7 @@
                          <i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng
                     </a>
                 </li>
-             
+
              </ul>
          </li>
 
