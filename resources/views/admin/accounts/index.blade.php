@@ -72,10 +72,14 @@
 
                             <td> {{ $item->phone }}</td>
                             <td> <img style="background:white"
-                                    src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}"
-                                    class="rounded" alt="Ảnh" width="70" height="70"> </td>
-                            @if ($item->status == 1)
-                                <td> Hoạt động </td>
+
+                                    src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}" class="rounded"
+                                    alt="Ảnh" width="70" height="70"> </td>
+                           @if( $item->status == 1)
+                                <td>  Hoạt động   </td> 
+                            @endif
+                            @if( $item->status == 0)
+                                <td>  Off </td> 
                             @endif
 
                             <td>

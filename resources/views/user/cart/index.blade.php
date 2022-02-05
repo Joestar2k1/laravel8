@@ -34,34 +34,29 @@
 									<th class="product-name">Name</th>
 									<th class="product-price">Price</th>
 									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="{{ asset('frontend/assets/img/products/product-img-1.jpg') }}" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="{{ asset('frontend/assets/img/products/product-img-2.jpg') }}" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="{{ asset('frontend/assets/img/products/product-img-3.jpg') }}" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
+								@if(Session::get('carts') == null)
+									<h5>Bạn chưa có sản phẩm trên giỏ hàng</h5>
+								@endif
+								@if(Session::get('carts') != null)
+									@foreach(Session::get('carts') as $item)
+										<tr class="table-body-row">
+											<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+											<td class="product-image">
+											<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
+											</td>
+											<td class="product-name">{{$item->name}}</td>
+											<td class="product-price">{{number_format($item->price)}}VND/{{$item->unit}}</td>
+											<td class="product-quantity">
+												<input type="number" placeholder="0" value="{{$item->quantity}}">
+											</td>
+											<!-- <td class="product-total">1</td> -->
+										</tr>
+									
+									@endforeach
+								@endif
 							</tbody>
 						</table>
 					</div>
@@ -93,7 +88,7 @@
 						</table>
 						<div class="cart-buttons">
 							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="{{route('checkout')}}" class="boxed-btn black">Check Out</a>
+							<a href="" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 

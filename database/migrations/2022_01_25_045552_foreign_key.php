@@ -24,6 +24,7 @@ class ForeignKey extends Migration
         });
         Schema::table('invoices', function (Blueprint $table) {
             $table->foreign('employeeID')->references('id')->on('employees');
+            $table->foreign('userID')->references('id')->on('users');
         });
         Schema::table('invoice_details', function (Blueprint $table) {
             $table->foreign('productID')->references('id')->on('products');

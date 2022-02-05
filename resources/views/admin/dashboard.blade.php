@@ -1,10 +1,26 @@
 @extends('admin.app')
-@section('title') Admin @endsection
+@section('title') Dashboard @endsection
 @section('content')
-    <div class="app-title">
-        <div>
-            <h1> Dashboard</h1>
-            <p>Xin chào {{ Session::get('empFullname_session') }} </p>
+
+  <div class="app-title">
+    <div>
+      <h1> Dashboard</h1>  
+        <p>Xin chào  {{Session::get('user')->fullName}} </p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+     
+      <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-3">
+      <div class="widget-small primary coloured-icon">
+        <i class="icon fa fa-truck fa-3x"></i>
+        <div class="info">
+          <h4>Tổng hóa đơn</h4>
+          <p><b>{{$countInv}}</b></p>
+
         </div>
         <ul class="app-breadcrumb breadcrumb">
 
@@ -12,15 +28,14 @@
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
         </ul>
     </div>
-    <div class="row">
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small primary coloured-icon">
-                <i class="icon fa fa-truck fa-3x"></i>
-                <div class="info">
-                    <h4>Tổng hóa đơn</h4>
-                    {{-- <p><b>{{$countInv}}</b></p> --}}
-                </div>
-            </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="widget-small info coloured-icon">
+        <i class="icon fa fa-pie-chart fa-3x"></i>
+        <div class="info">
+          <h4>Doanh Thu</h4>
+          <p><b>{{number_format($sales)}}VND</b></p>
+
         </div>
         <div class="col-md-6 col-lg-3">
             <div class="widget-small info coloured-icon">

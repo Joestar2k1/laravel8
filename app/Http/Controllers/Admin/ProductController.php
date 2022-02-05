@@ -41,7 +41,7 @@ class ProductController extends Controller
             $file->move(public_path('backend/assets/img/products'),$file_name);
         }
 
-        $date = Date('Ymd');
+        $date = Date('Y-m-d');
         $randomID = 'f'.$date .'pr' . $countPrd;
         $products = new Product;
 

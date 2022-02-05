@@ -13,18 +13,28 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css') }}" />
 
+
     {{-- Css của Imported Invoice --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/imp_inv.css') }}">
 
     {{-- Css của Imported Invoice Details --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/imp_inv_detail.css') }}">
 
+
     <title>@yield('title')</title>
 </head>
 
 <body class=" app sidebar-mini rtl">
     @include('admin.partials.header')
-    @include('admin.partials.navbar')
+    @if(Session::get('user')->type == 'admin')
+        @include('admin.partials.navbar')
+    @endif
+    @if(Session::get('user')->type == 'NV thanh toán')
+        @include('admin.partials.navbar_payment')
+    @endif
+    @if(Session::get('user')->type == 'NV kiểm kho')
+        @include('admin.partials.navbar_inventory')
+    @endif
     <main class="app-content">
         @yield('content')
     </main>

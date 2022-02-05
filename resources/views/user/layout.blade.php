@@ -7,7 +7,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>@yield('title') - {{ config('app.name') }}</title>
+	<title>@yield('title')</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{{asset('frontend/assets/img/favicon.png')}}">
@@ -30,7 +30,7 @@
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
-
+	@yield('profile')
 </head>
 <body>
 	

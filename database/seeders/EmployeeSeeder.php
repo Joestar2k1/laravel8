@@ -57,6 +57,7 @@ class EmployeeSeeder extends Seeder
                  'avatar' => 'avatar3.png',
                 'status' => 1,
             ],
+
             [
                 'id' => 'NV202201254',
                 'username' => 'layer04',
@@ -82,6 +83,8 @@ class EmployeeSeeder extends Seeder
                  'avatar' => 'avatar1.png',
                 'status' => 1,
             ],
+
+
         ]);
     }
 }

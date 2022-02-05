@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/main.css')
-}}" />
+    }}" />
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.min.css')}}"/>
-<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css')}}"/>
     <title>Đăng nhập</title>
   </head>
   <body>
@@ -18,10 +18,10 @@
     </section>
     <section class="login-content">
       <div class="logo">
-        <h1>Vali</h1>
+        <h1>FruitKha</h1>
       </div>
       <div class="login-box">
-      <form class="login-form" action="{{ route('admin.login.post') }}"method="POST" role="form">
+      <form class="login-form" action="{{ route('user.login.post') }}"method="POST" role="form">
           @csrf
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Sign in</h3>
           <div class="form-group">

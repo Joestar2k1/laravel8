@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,15 +13,9 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-    protected $redirectTo = '/admin';
-
-    // public function __construct()
-    // {
-    //     $this->middleware('guest:admin')->except('logout');
-    // }
 
     public function loginForm(){
-        return view('admin.auth.login');
+        return view('user.auth.login');
     }
 
     public function login(Request $request)
@@ -30,27 +24,24 @@ class LoginController extends Controller
         'email' => 'required|email',
         'password' => 'required|min:6'
         ]);
-        if (Auth::guard('admin')->attempt([
+        if (Auth::guard('user')->attempt([
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => $request->password
         ], $request->get('remember'))) {
-
-            $emp = DB::table('employees')->where('email',$request->email)->get();
-             foreach($emp as $item){
-                    Session::put('emp',$item);
-             }
-
-            return redirect()->route('admin.dashboard');
+            $user = DB::table('users')->where('email',$request->email)->get();
+            foreach($user as $item){
+                Session::put('customers',$item);
+                Session::put('carts',[]);
+            }
+            return redirect()->route('user.home');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
-
-
-
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('user')->logout();
+        Session::flush();
         $request->session()->invalidate();
-        return redirect()->route('admin.login.get');
+        return redirect()->route('user.home');
     }
 }

@@ -1,37 +1,24 @@
 @extends('admin.app')
-@section('title') Admin-product @endsection
+@section('title') Sản phẩm @endsection
 @section('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="row">
-        <div class="col-sm-4  text-white">
-            <a href="{{ route('admin.product.create.index') }}" class="btn btn-success">Tạo sản phẩm</a>
-        </div>
-        <div class="col-sm-4 text-white">
-            <form class="d-flex" method="GET" action="{{ route('admin.product.search') }}">
-                <input class="form-control me-2" name="keyWord" type="text" placeholder="Search">
-                <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-            </form>
-        </div>
-        <div class="col-sm-4 text-white">
-            <div class="dropdown dropend">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                    Sắp xếp
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('admin.product') }}">Tất cả</a></li>
-                    <li><a class="dropdown-item" href="{{ route('admin.product.request', 'price_down') }}">Giá 50.000đ
-                            trở
-                            xuống</a></li>
-                    <li><a class="dropdown-item" href="{{ route('admin.product.request', 'price_up') }}">Giá 50.000đ trở
-                            lên</a></li>
-                    <li><a class="dropdown-item" href="{{ route('admin.product.request', 'stock') }}">Số lượng TK tăng
-                            dần</a></li>
-                </ul>
-            </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="app-title">
+    <div>
+      <h1>Quản lí sản phẩm</h1>  
+        <p>Xin chào {{Session::get('user')->fullName}} </p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+     
+      <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
+      <li class="breadcrumb-item"><a href="#">Quản lí sản phẩm</a></li>
+    </ul>
+  </div>
+<div class="row">
+<div class="col-sm-4  text-white">
+        <a href="{{route('admin.product.create.index')}}" class="btn btn-success">Tạo sản phẩm</a>
 
-        </div>
     </div>
     </div>
     <div class="container-fluid">
@@ -77,6 +64,4 @@
             {{ $data->links() }}
         </div>
     </div>
-
-
 @endsection
