@@ -2,10 +2,14 @@
 
  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
  <aside class="app-sidebar">
-     <div class="app-sidebar__user">
-         <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avaters/')}}./{{Session::get('user')->avatar}}" width="40px" height="40px">
+
+     <div class="app-sidebar__user"><img "src="" alt="">
          <div>
-             <p class="app-sidebar__user-designation">{{Session::get('user')->type}}</p>
+          <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avaters/')}}./{{Session::get('user')->avatar}}" width="40px" height="40px">
+             <p class="app-sidebar__user-name">{{ Session::get('emp')->id }}</p>
+             <p class="app-sidebar__user-name">{{ Session::get('emp')->fullName }}</p>
+             <p class="app-sidebar__user-designation">Vị trí: {{ Session::get('emp')->type }}</p>
+
          </div>
      </div>
      </div>
@@ -20,7 +24,7 @@
              <a class="app-menu__item" href="#" data-toggle="treeview">
                  <i class="fa fa-users" aria-hidden="true"></i></i>
                  <span class="app-menu__label">Quản lí nhân sự</span>
-                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                 <i class="fa fa-angle-right" aria-hidden="true"></i>
              </a>
         <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{ route('admin.account') }}"><i

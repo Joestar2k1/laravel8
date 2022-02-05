@@ -16,6 +16,7 @@ class Invoice extends Seeder
     {
         $data = Date('Y-m-d h:i:s');
         DB::table('invoices')->insert([
+
             [  
                 'id'=>  'in202201221',             
                 'userID' => 'KH202201255',
@@ -28,6 +29,7 @@ class Invoice extends Seeder
                  'total' => 70000,
                 'status' => -1,
             ],
+
             [  
                 'id'=>  'in202201222',             
                 'userID' => 'KH202201255',

@@ -48,7 +48,7 @@
                         <th>
                             Họ tên
                         </th>
-                     
+
                         <th>
                             Số điện thoại
                         </th>
@@ -58,7 +58,7 @@
                         <th>
                             Trạng thái
                         </th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
@@ -69,9 +69,10 @@
                             <td> {{ $item->email }}</td>
                             <td></td>
                             <td> {{ $item->fullName }}</td>
-                          
+
                             <td> {{ $item->phone }}</td>
                             <td> <img style="background:white"
+
                                     src="{{ asset('backend/assets/img/avaters/' . $item->avatar) }}" class="rounded"
                                     alt="Ảnh" width="70" height="70"> </td>
                            @if( $item->status == 1)
@@ -80,6 +81,7 @@
                             @if( $item->status == 0)
                                 <td>  Off </td> 
                             @endif
+
                             <td>
                                 <a class="btn btn-success">Edit</a>
                             </td>
@@ -93,8 +95,8 @@
             {{ $data->links() }}
         </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
 
 
 @endsection

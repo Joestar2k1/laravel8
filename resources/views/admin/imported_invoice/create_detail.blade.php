@@ -1,89 +1,70 @@
 @extends('admin.app')
 @section('title') Admin - Imported Invoice - Create Detail @endsection
 @section('content')
-    <div class="container-lg">
-        <div class="table-responsive">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h2>Tạo chi tiết hóa đơn nhập <b>Details</b></h2>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-info add-new-imported-invoice-detail"><i
-                                    class="fa fa-plus"></i> Add
-                                New</button>
-                        </div>
-                    </div>
-                </div>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Mã CTHDN</th>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Số lượng nhập</th>
-                            <th>Đơn giá/Kg</th>
-                            <th>Đơn vị (Kg)</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CTHDN 001</td>
-                            <td>DH56424</td>
-                            <td>Dưa hấu</td>
-                            <td>100</td>
-                            <td>25.000</td>
-                            <td>Kg</td>
-
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>CTHDN 001</td>
-                            <td>DH56424</td>
-                            <td>Dưa hấu</td>
-                            <td>100</td>
-                            <td>25.000</td>
-                            <td>Kg</td>
-
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CTHDN 001</td>
-                            <td>DH56424</td>
-                            <td>Dưa hấu</td>
-                            <td>100</td>
-                            <td>25.000</td>
-                            <td>Kg</td>
-
-                            <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Tạo chi tiết hóa đơn nhập <b>Details</b></h2>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-info add-new-imported-invoice-detail"><i class="fa fa-plus"></i> Add
+                    New</button>
             </div>
         </div>
     </div>
+    {{-- form create detail --}}
+    <form action="{{ route('admin.imported_invoice.create_detail_view') }}" method="POST" role="form"
+        enctype="multipart/form-data">
+        @csrf
+        <table class="table table-hover table-bordered" id="sampleTable">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã hóa đơn nhập hàng</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng (Kg) </th>
+                    <th>Đơn giá/(Kg)</th>
+                    <th>Đơn vị(Kg)</th>
+                    <th>Ảnh minh họa</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach ($imported_inv_details as $item)
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->importedInvoiceID }}</td>
+                        <td> {{ $item->productID }}</td>
+                        <td> {{ $item->productName }}</td>
+                        <td> {{ $item->quantity }}</td>
+                        <td> {{ $item->price }}</td>
+                        <td> {{ $item->unit }}</td>
+
+                        <td> <img style="background:white"
+                                src="{{ asset('backend/assets/img/products/' . $item->image) }}" class="rounded"
+                                alt="Ảnh" width="70" height="70"> </td>
+
+
+                        <td>
+                            <button class="add_imp_inv_detail fa fa-plus" type="submit">
+                                <a class="add_imp_inv_detail" title="Add" data-toggle="tooltip"></a>
+                            </button>
+                            <a class="edit " title="Edit" data-toggle="tooltip">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ route('admin.imp_inv_detail.delete', $item->id) }}" class="delete"
+                                title="Delete" data-toggle="tooltip">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </form>
+
 @endsection

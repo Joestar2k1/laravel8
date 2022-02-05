@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\EmployeeController;
-use App\Http\Controllers\Admin\ImportedInvoiceController;
+use App\Http\Controllers\Admin\Imported_Invoice_Controller;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\ProviderController;
@@ -68,10 +68,31 @@ Route::group(['prefix' => '/'], function () {
 
         //----------------------------------------------------------
         Route::group(['prefix' => '/imported_invoices'], function(){
-          Route::get('/', [ImportedInvoiceController::class, 'show'])->name('admin.imported_invoice.index');
-          Route::get('/create', [ImportedInvoiceController::class, 'createView'])->name('admin.imported_invoice.createView');
-          Route::get('/createDetail', [ImportedInvoiceController::class, 'createDetailView'])->name('admin.imported_invoice.createDetail');
-     });
+            // -------- Hoa  don nhap hang ---------------------- \\
+            Route::get('/', [Imported_Invoice_Controller::class, 'loadHoaDonNhap'])->name('admin.imported_invoice.index');
+
+             // paginate
+            Route::get('/create', [Imported_Invoice_Controller::class, 'loadHoaDonNhap'])->name('admin.imported_invoice.index');
+
+            Route::post('/create', [Imported_Invoice_Controller::class, 'createHoaDonNhap'])->name('admin.imported_invoice.createHDN');
+
+
+            // -------- Chi tiet  hoa  don nhap hang ---------------------- \\
+
+            // return view create detail
+            Route::get('/create_detail', [Imported_Invoice_Controller::class, 'create_detail_hdn_view'])->name('admin.imported_invoice.create_detail_view');
+
+            // create imported invoice detail by POST method
+            Route::post('/create_detail', [Imported_Invoice_Controller::class, 'create_imp_inv_detail'])->name('admin.imported_invoice.create_imp_inv_detail');
+
+            // delete imp inv detail
+            Route::get('/delete_detail/{id}', [Imported_Invoice_Controller::class, 'delete_imp_inv_detail'])->
+            name('admin.imp_inv_detail.delete');
+
+            // Update imp inv detail
+            Route::get('/update_detail/{id}', [App\Http\Controllers\Imported_Invoice_Controller::class, 'edit']);
+            Route::post('/update_detail/{id}', [App\Http\Controllers\Imported_Invoice_Controller::class, 'update']);
+        });
 
 //----------------------------------------------------------------------------------------
 
@@ -85,6 +106,8 @@ Route::group(['prefix' => '/'], function () {
      });
 //----------------------------------------------------------------------------------------
 Route::group(['prefix' => '/employee'], function(){
+
+    // --------------------   Tạo nhân viên--------------------------------------------
     Route::get('', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index');
 
     Route::get('/create', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index'); // dùng cho paginate
