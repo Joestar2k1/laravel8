@@ -16,11 +16,12 @@ class CreateImportedInvoiceDetailsTable extends Migration
         Schema::create('imported_invoice_details', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('importedInvoiceID');
-            $table->string('sku');
+            $table->string('productID');
             $table->string('productName');
             $table->integer('quantity');
             $table->integer('price');
             $table->string('unit');
+            $table->string('image');
             $table->timestamps();
         });
     }

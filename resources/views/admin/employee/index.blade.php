@@ -13,8 +13,9 @@
                 New</button>
         </div>
     </div>
+
     <div style="overflow-x: auto;">
-        <form action="{{ route('admin.employee.createEmployee') }}" method="POST" role="form">
+        <form action="{{ route('admin.employee.createEmployee') }}" enctype="multipart/form-data" method="POST" role="form">
             @csrf
             <table class="table table-bordered">
                 <thead>
@@ -30,6 +31,8 @@
                         <th>Avatar</th>
                         <th>Status</th>
                         <th>Action</th>
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +46,12 @@
                             <td> {{ $item->address }}</td>
                             <td> {{ $item->salary }}</td>
                             <td> {{ $item->type }}</td>
-                            <td> <img width="70px" height="60px"
-                                    src=" {{ asset('backend/assets/img/avaters/' . $item->avatar) }} " alt=""></td>
+                            <td>
+                                <img width="70px" height="60px"
+                                    src=" {{ asset('backend/assets/img/avatar/' . $item->avatar) }} " alt="">
+                            </td>
                             <td> {{ $item->status }}</td>
+
                             <td>
                                 <button class="add fa fa-plus" type="submit">
                                     <a class="add" title="Add" data-toggle="tooltip">
@@ -59,6 +65,8 @@
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
+
+
                         </tr>
                     @endforeach
 

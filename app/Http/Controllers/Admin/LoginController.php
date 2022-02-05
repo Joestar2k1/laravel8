@@ -8,12 +8,13 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
     protected $redirectTo = '/admin';
-    
+
     // public function __construct()
     // {
     //     $this->middleware('guest:admin')->except('logout');
@@ -31,14 +32,53 @@ class LoginController extends Controller
         // ]);
         if (Auth::guard('admin')->attempt([
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ], $request->get('remember'))) {
-            $infoUser = DB::table('users')->where('email',$request->email)
-            ->get();
+
+            $emp_id  = DB::table('employees')
+            ->select('id')
+            ->where('email',$request->email)
+            ->first();
+
+            $empID = $emp_id->id;
+            Session::put('empID_session', $empID);
+
+            $emp_type  = DB::table('employees')
+            ->select('type')
+            ->where('email',$request->email)
+            ->first();
+
+             $empType = $emp_type->type;
+             Session::put('empType_session', $empType);
+
+             $emp_fullName  = DB::table('employees')
+            ->select('fullName')
+            ->where('email',$request->email)
+            ->first();
+
+             $empFullName = $emp_fullName->fullName;
+             Session::put('empFullName_session', $empFullName);
+
+             $emp_Avatar = DB::table('employees')
+             ->select('avatar')
+             ->where('email',$request->email)
+             ->first();
+
+             $empAvatar = $emp_Avatar->avatar;
+             Session::put('empAvatar_session', $empAvatar);
+             dd($empAvatar);
+
+            $user = DB::table('employees')->where('email',$request->email)->get();
+             foreach($user as $item){
+                    Session::put('user',$item);
+             }
+
             return redirect()->route('admin.dashboard');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
+
+
 
     public function logout(Request $request)
     {

@@ -20,7 +20,6 @@ class ProviderSeeder extends Seeder
                 'id' =>  'NCC000',
                 'name' => 'Công ty TNHH trái cây',
                 'address' =>  'Tp.HCM',
-                'type' => 'Trái cây',
                 'phone' => 2132323213,
                 'status' => true,
             ],
