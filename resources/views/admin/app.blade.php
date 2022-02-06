@@ -122,8 +122,10 @@
 </head>
 
 <body class=" app sidebar-mini rtl">
+
     @include('admin.partials.header')
     @include('admin.partials.navbar')
+
     <main class="app-content">
         @yield('content')
     </main>

@@ -27,6 +27,7 @@
                                 <th>Address</th>
                                 <th>Phone</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +38,9 @@
                                     <td> {{ $item->address }}</td>
                                     <td> {{ $item->phone }}</td>
                                     <td> {{ $item->status }}</td>
+
                                     <td>
+
                                         <button style="background-color: rgb(126, 233, 126)" type="submit"> <a
                                                 class="add" title="Add" data-toggle="tooltip"><i
                                                     class="material-icons">&#xE03B;</i></a></button>
