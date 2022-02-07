@@ -63,6 +63,7 @@ Route::group(['prefix' => '/'], function () {
 
                Route::get('/confirmStatus/{invoiceID}', [InvoiceController::class, 'handleConfirmStatus'])->name('admin.invoice.confirmStatus');
 
+               Route::get('/waiting-to-accept', [InvoiceController::class, 'waitingToAccept'])->name('admin.invoice.waiting');
         });
 
 

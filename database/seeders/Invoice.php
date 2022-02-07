@@ -48,8 +48,8 @@ class Invoice extends Seeder
                 'shippingAddress' => 'Quận 5',
                 'dateCreated' =>  $data,
                  'isPaid' => 0,
-                 'total' => 200000,
-                'status' => 1,
+                 'total' => 410000,
+                'status' => 0,
             ],
             [  
                 'id'=>  'in202201224',             

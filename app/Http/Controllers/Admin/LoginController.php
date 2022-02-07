@@ -35,7 +35,7 @@ class LoginController extends Controller
         ], $request->get('remember'))) {
             $user = DB::table('employees')->where('email',$request->email)->get();
             // foreach($user as $item){
-                    Session::put('user',$item[0]);
+                    Session::put('user',$user[0]);
             // }
             return redirect()->route('admin.dashboard');
         }
