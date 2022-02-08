@@ -73,11 +73,25 @@ class InvoiceController extends Controller
     }
 
 
-    public function handleConfirmStatus($request){
+    public function handleConfirmStatus($id){
         $invoices = Invoice::where('id',$request)->get();
-
         $invoices[0]->status = $invoices[0]->status+1;
         $query = DB::table('invoices')->get();
-        return redirect()->route('admin.invoice.orderTracking');
+        return view();
+    }
+
+    public function waitingToAccept(){
+        $load = DB::table('invoices')
+        ->select('invoices.*')
+        ->where('invoices.status',0)    
+        ->addSelect(DB::raw("null as products"))->get();
+
+        foreach($load as $item){
+            $item->products = DB::table('invoice_details')
+            ->join('products','invoice_details.productID','products.id')
+            ->where('invoice_details.invoiceID',$item->id)
+            ->select('products.*','invoice_details.quantity')->get();
+        }
+        return view('admin.invoices.order_tracking_details.waiting',compact('load'));
     }
 }

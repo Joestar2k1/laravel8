@@ -3,17 +3,24 @@
 @section('content')
 <link  href="{{asset('backend/assets/css/order_tracking.css')}}" rel="stylesheet">
 <div class="container">
-<div style="color:green;text-align:center">
-        <h3>Danh sách hóa đơn đang theo dõi</h3>
-</div>
-<div style="height:50px"></div>
+<div class="app-title">
+    <div>
+      <h1>Hóa đơn / Theo dõi đơn hàng</h1>  
+        <p>Xin chào  {{Session::get('emp')->fullName}} </p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+     
+      <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
+      <li class="breadcrumb-item"><a href="#">Theo dõi đơn hàng</a></li>
+    </ul>
+  </div>
 <div class="col-lg-9 my-lg-0 my-1">
             <div id="main-content" class="bg-white border">
                 <div class="d-flex my-4 flex-wrap">
                     <div class="box me-4 my-1 bg-light"> 
                             <div class="my-eye">
                                 <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png" alt="">
-                                <a href=""><i class="fa fa-eye"></i></a>
+                                <a href="{{route('admin.invoice.waiting')}}"><i class="fa fa-eye"></i></a>
                             </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Đơn mới</div>

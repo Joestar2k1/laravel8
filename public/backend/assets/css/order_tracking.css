@@ -1,6 +1,7 @@
 #main-content {
     padding: 30px;
     border-radius: 15px;
+    width: 135%;
 }
 #main-content .box {
     margin: 30px;

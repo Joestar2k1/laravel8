@@ -3,10 +3,9 @@
  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
  <aside class="app-sidebar">
 
-     <div class="app-sidebar__user"><img "src="" alt="">
+     <div class="app-sidebar__user">
          <div>
-          <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avatar/')}}./{{Session::get('emp')->avatar}}" width="40px" height="40px">
-             <p class="app-sidebar__user-name">{{ Session::get('emp')->id }}</p>
+          <img class="app-sidebar__user-avatar" src="{{asset('backend/assets/img/avaters')}}/{{Session::get('emp')->avatar}}" width="40px" height="40px">
              <p class="app-sidebar__user-name">{{ Session::get('emp')->fullName }}</p>
              <p class="app-sidebar__user-designation">Vị trí: {{ Session::get('emp')->type }}</p>
 

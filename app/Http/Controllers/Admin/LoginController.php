@@ -34,7 +34,6 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ], $request->get('remember'))) {
-
             $emp = DB::table('employees')->where('email',$request->email)->get();
              foreach($emp as $item){
                     Session::put('emp',$item);
