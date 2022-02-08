@@ -27,6 +27,7 @@ class ProviderController extends Controller
 
         $providers = new Provider;
         $providers->id = $randomID;
+
         $providers->name = $request->provider_name;
         $providers->address = $request->address;
         $providers->phone = $request->phone;

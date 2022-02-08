@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class Invoice extends Seeder
+class InvoiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +16,9 @@ class Invoice extends Seeder
     {
         $data = Date('Y-m-d h:i:s');
         DB::table('invoices')->insert([
-            [  
-                'id'=>  'in202201221',             
+
+            [
+                'id'=>  'in202201221',
                 'userID' => 'KH202201255',
                 'employeeID' => 'NV202201253',
                 'shippingName' =>  'Huỳnh Tấn Nghĩa',
@@ -28,8 +29,9 @@ class Invoice extends Seeder
                  'total' => 70000,
                 'status' => -1,
             ],
-            [  
-                'id'=>  'in202201222',             
+
+            [
+                'id'=>  'in202201222',
                 'userID' => 'KH202201255',
                 'employeeID' => 'NV202201253',
                 'shippingName' =>  'Hồ Văn Tuân',
@@ -39,8 +41,8 @@ class Invoice extends Seeder
                  'isPaid' => 1,
                  'total' => 120000,
                 'status' => -1,
-            ],  [  
-                'id'=>  'in202201223',             
+            ],  [
+                'id'=>  'in202201223',
                 'userID' => 'KH202201255',
                 'employeeID' => 'NV202201253',
                 'shippingName' =>  'Hà Thị Ngọc',
@@ -51,8 +53,8 @@ class Invoice extends Seeder
                  'total' => 410000,
                 'status' => 0,
             ],
-            [  
-                'id'=>  'in202201224',             
+            [
+                'id'=>  'in202201224',
                 'userID' => 'KH202201255',
                 'employeeID' => 'NV202201253',
                 'shippingName' =>  'Nguyễn Vũ Minh Long',

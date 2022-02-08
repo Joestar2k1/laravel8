@@ -10,7 +10,7 @@
              $(this).attr("disabled", "disabled");
              var index = $("table tbody tr:last-child").index();
              var row = '<tr>' +
-                 '<td><input type="text" class="form-control" name="" id="" disabled></td>' +
+                 '<td><input type="text" class="form-control" name="id" id="id" disabled></td>' +
                  '<td><input type="text" class="form-control" name="provider_name" id="provider_name"></td>' +
                  '<td><input type="text" class="form-control" name="address" id="address"></td>' +
                  '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
@@ -45,8 +45,7 @@
          // Edit row on edit button click
          $(document).on("click", ".edit", function() {
              $(this).parents("tr").find("td:not(:last-child)").each(function() {
-                 $(this).html('<input type="text" class="form-control" value="' + $(this)
-                     .text() + '">');
+                $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
              });
              $(this).parents("tr").find(".add, .edit").toggle();
              $(".add-new").attr("disabled", "disabled");

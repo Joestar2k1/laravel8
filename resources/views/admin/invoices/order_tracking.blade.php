@@ -6,7 +6,7 @@
 <div class="app-title">
     <div>
       <h1>Hóa đơn / Theo dõi đơn hàng</h1>  
-        <p>Xin chào  {{Session::get('user')->fullName}} </p>
+        <p>Xin chào  {{Session::get('emp')->fullName}} </p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
      

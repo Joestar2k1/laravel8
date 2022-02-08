@@ -10,7 +10,7 @@ use App\Models\Invoice;
 class InvoiceController extends Controller
 {
     public function showInvoice(){
-         DB::table('invoices')
+         $invoices = DB::table('invoices')
         ->join('employees','invoices.employeeID','=','employees.id')
         ->join('users','invoices.userID','=','users.id')
         ->select(DB::raw('employees.fullName as nv'),'users.fullName','invoices.id','invoices.dateCreated','total','invoices.status','invoices.shippingAddress','invoices.isPaid')
@@ -43,8 +43,8 @@ class InvoiceController extends Controller
                 'WaitingToAccept'=>$countWaitingToAccept[0]->SL,
                 'Confirmed'=>$countConfirmed[0]->SL,
                 'Delivery'=>$countDelivery[0]->SL,
-                'Success'=>$countSuccess[0]->SL,            
-            ]    
+                'Success'=>$countSuccess[0]->SL,
+            ]
         );
     }
     public function detailsInvoice($invoiceID){
@@ -54,7 +54,7 @@ class InvoiceController extends Controller
         ->select('users.fullName','invoices.id','invoices.dateCreated','invoices.total','invoices.status','invoices.shippingAddress','invoices.shippingPhone','invoices.shippingName','invoices.isPaid')->get();
         $invoice_details = DB::table('invoice_details')
         ->join('products','invoice_details.productID','=','products.id')
-        ->where('invoice_details.invoiceID',$invoiceID)->get(); 
+        ->where('invoice_details.invoiceID',$invoiceID)->get();
         return view('admin.invoices.details',compact('invoices','invoice_details'));
     }
 
@@ -68,16 +68,16 @@ class InvoiceController extends Controller
         ->join('products','invoice_details.productID','=','products.id')
         ->where('invoice_details.invoiceID',$invoiceID)->get();
 
-  
+
         return view('admin.invoices.details_order',compact('invoices','invoice_details'));
     }
 
 
-    public function handleConfirmStatus($request){
+    public function handleConfirmStatus($id){
         $invoices = Invoice::where('id',$request)->get();
         $invoices[0]->status = $invoices[0]->status+1;
         $query = DB::table('invoices')->get();
-        return redirect()->route('admin.invoice.orderTracking');
+        return view();
     }
 
     public function waitingToAccept(){

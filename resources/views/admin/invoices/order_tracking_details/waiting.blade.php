@@ -15,7 +15,7 @@
 <div class="app-title">
     <div>
       <h1>Hóa đơn / Theo dõi đơn hàng / đơn xác nhận</h1>  
-        <p>Xin chào  {{Session::get('user')->fullName}} </p>
+        <p>Xin chào  {{Session::get('emp')->fullName}} </p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
      
@@ -35,6 +35,7 @@
                 <div class="fs-8">{{$item->userID}}</div>
                 <div class="fs-8">{{$item->dateCreated}}</div>
                 <div class="fs-8">Tổng tiền :{{number_format($item->total)}}VND</div>
+                <div class="fs-8"><a href="{{route('admin.invoice.confirmStatus')}}" class="btn btn-primary">Xác nhận đơn</a></div>
             </div>
         </div>
          <div class="col-lg-8">
