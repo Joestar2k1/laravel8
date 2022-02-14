@@ -64,12 +64,18 @@ Route::group(['prefix' => '/'], function () {
                Route::get('/order-tracking/confirmStatus/{invoiceID}', [InvoiceController::class, 'handleConfirmStatus'])->name('admin.invoice.confirmStatus');
 
                Route::get('/waiting-to-accept', [InvoiceController::class, 'waitingToAccept'])->name('admin.invoice.waiting');
+
+               Route::get('/confirmed', [InvoiceController::class, 'confirmed'])->name('admin.invoice.confirmed');
+
+               Route::get('/on-delivery', [InvoiceController::class, 'onDelivery'])->name('admin.invoice.delivery');
+
+               Route::get('/success-delivery', [InvoiceController::class, 'success'])->name('admin.invoice.success');
         });
 
 
         //----------------------------------------------------------
         Route::group(['prefix' => '/imported_invoices'], function(){
-            // -------- Hoa  don nhap hang ---------------------- \\
+         
             Route::get('/', [Imported_Invoice_Controller::class, 'loadHoaDonNhap'])->name('admin.imported_invoice.index');
 
              // paginate
@@ -78,9 +84,7 @@ Route::group(['prefix' => '/'], function () {
             Route::post('/create', [Imported_Invoice_Controller::class, 'createHoaDonNhap'])->name('admin.imported_invoice.createHDN');
 
 
-            // -------- Chi tiet  hoa  don nhap hang ---------------------- \\
-
-            // return view create detail
+         
             Route::get('/create_detail', [Imported_Invoice_Controller::class, 'create_detail_hdn_view'])->name('admin.imported_invoice.create_detail_view');
 
             // create imported invoice detail by POST method

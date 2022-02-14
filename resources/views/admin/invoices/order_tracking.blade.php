@@ -30,7 +30,7 @@
                     <div class="box me-4 my-1 bg-light">                         
                         <div class="my-eye">
                             <img src="https://www.freepnglogos.com/uploads/tick-png/check-mark-tick-vector-graphic-21.png" alt="">
-                            <a href=""><i class="fa fa-eye"></i></a>
+                            <a href="{{route('admin.invoice.confirmed')}}"><i class="fa fa-eye"></i></a>
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Đã xác nhận</div>
@@ -40,7 +40,7 @@
                     <div class="box me-4 my-1 bg-light"> 
                         <div class="my-eye">
                             <img src="https://www.freepnglogos.com/uploads/logo-ifood-png/happy-ifood-logo-delivery-ifood-transparent-21.png" alt="">
-                            <a href=""><i class="fa fa-eye"></i></a>
+                            <a href="{{route('admin.invoice.delivery')}}"><i class="fa fa-eye"></i></a>
                         </div>                         
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Đang vận chuyển</div>
@@ -51,7 +51,7 @@
                            
                         <div class="my-eye">
                         <img src="https://www.freepnglogos.com/uploads/thank-you-png/thank-you-png-testimonials-calm-order-professional-home-organizing-29.png" alt="">
-                            <a href=""><i class="fa fa-eye"></i></a>
+                            <a href="{{route('admin.invoice.success')}}"><i class="fa fa-eye"></i></a>
                         </div>    
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Thành công</div>
