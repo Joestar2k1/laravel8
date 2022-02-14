@@ -4,41 +4,31 @@
 <link  href="{{asset('backend/assets/css/order_tracking.css')}}" rel="stylesheet">
 <script>
     function showOrderInfo(str) {   
-        var orderInfo = document.getElementById('show-orderInfo-'+str);
-        if (orderInfo.style.display === "none") {
-            orderInfo.style.display = "block";
-        } else {
-            orderInfo.style.display = "none";
-        }
+    var orderInfo = document.getElementById('show-orderInfo-'+str);
+    if (orderInfo.style.display === "none") {
+        orderInfo.style.display = "block";
+    } else {
+        orderInfo.style.display = "none";
+    }
     }   
-    $('.confirm').click(function()
-            {
-                var url =$(this).attr('data-url');
-                $.ajax({
-                    url : url, // gửi ajax đến file result.php
-                    type : "get", // chọn phương thức gửi là get
-                    success : function (result){
-                        $('#confirm-invoice').html(result);
-                    }
-                });
-            });
-    
 </script>
 <div class="app-title">
     <div>
-      <h1>Hóa đơn / Theo dõi đơn hàng / Đơn mới</h1>  
+      <h1>Hóa đơn / Theo dõi đơn hàng / Đang vận chuyển</h1>  
         <p>Xin chào  {{Session::get('emp')->fullName}} </p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
      
       <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
       <li class="breadcrumb-item"><a href="{{ route('admin.invoice.orderTracking') }}">Theo dõi đơn hàng</a></li>
-      <li class="breadcrumb-item"><a href="#">Đơn xác nhận</a></li>
+      <li class="breadcrumb-item"><a href="#">Đơn đang vận chuyển</a></li>
     </ul>
 </div>
-@foreach($load as $item)
+
+    @if($load != null)
+    @foreach($load as $item)
 <div class="order my-3 bg-light">
-    <div class="row" id="confirm-invoice">
+    <div class="row">
         <div class="col-lg-4">
             <div class="d-flex flex-column justify-content-between order-summary">
                 <div class="d-flex align-items-center">
@@ -48,14 +38,12 @@
                 <div class="fs-8">{{$item->userID}}</div>
                 <div class="fs-8">{{$item->dateCreated}}</div>
                 <div class="fs-8">Tổng tiền :{{number_format($item->total)}}VND</div>
-                <div class="fs-8">
-                    
-                <a href="{{route('admin.invoice.confirmStatus',$item->id)}}"  class="btn btn-primary confirm">Xác nhận đơn</a></div>
+                <div class="fs-8"><a href="{{route('admin.invoice.confirmStatus',$item->id)}}" class="btn btn-primary">Xác nhận thành công</a></div>
             </div>
         </div>
          <div class="col-lg-8">
              <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                <div class="status">Trạng thái : Chờ xác nhận</div>
+                <div class="status">Trạng thái : Đang vận chuyển</div>
                 <div onclick="showOrderInfo('{{$item->id}}')" class="btn btn-primary text-uppercase" >Xem thông tin</div>
              </div>
         </div>   
@@ -94,4 +82,5 @@
     </div>     
 </div>
 @endforeach
+@endif
 @endsection
