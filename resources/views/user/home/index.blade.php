@@ -141,7 +141,9 @@
 					</div>
 				</div>
 				@endforeach
-				{{$products->links()}}
+				<div style="margin:auto">
+					{{$products->links()}}
+				</div>
 				
 			</div>
 		</div>

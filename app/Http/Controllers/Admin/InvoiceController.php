@@ -78,15 +78,22 @@ class InvoiceController extends Controller
         ->where('id',$id)
         ->select('status')->get();
         $int_status = $select_status_invoice[0]->status;
-        if($int_status==3){
+        if($int_status==2){
             $update = DB::table('invoices')
             ->where('id',$id)
             ->update(['status' => -1]);
-        }else{
-            $update = DB::table('invoices')
-            ->where('id',$id)
-            ->whereBetween('status',[0,4])
-            ->update(['status' => $int_status+1]);
+        }else{      
+            if($int_status == 0){
+                $update = DB::table('invoices')
+                ->where('id',$id)
+                ->whereBetween('status',[0,4])
+                ->update(['status' => $int_status+1,'employeeID'=>Session::get('emp')->id]);
+            }else{
+                $update = DB::table('invoices')
+                ->where('id',$id)
+                ->whereBetween('status',[0,4])
+                ->update(['status' => $int_status+1]);
+            }
         }
        
         if($int_status==0){

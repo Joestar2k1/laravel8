@@ -37,7 +37,7 @@ class ProductController extends Controller
         if($request->has('image')){
             $file= $request->image;
             $ext = $request->image->extension();//lấy đuôi file png||jpg
-            $file_name = Date('Ymd').'-'.'product'.$countPrd.$ext;
+            $file_name = Date('Ymd').'-'.'product'.$countPrd.'.'.$ext;
             $file->move(public_path('backend/assets/img/products'),$file_name);
         }
 

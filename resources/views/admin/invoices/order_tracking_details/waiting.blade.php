@@ -11,17 +11,6 @@
             orderInfo.style.display = "none";
         }
     }   
-    $('.confirm').click(function()
-            {
-                var url =$(this).attr('data-url');
-                $.ajax({
-                    url : url, // gửi ajax đến file result.php
-                    type : "get", // chọn phương thức gửi là get
-                    success : function (result){
-                        $('#confirm-invoice').html(result);
-                    }
-                });
-            });
     
 </script>
 <div class="app-title">
@@ -61,35 +50,35 @@
         </div>   
     </div>   
     <div class="row">
-    <div id="show-orderInfo-{{$item->id}}" style="display:none">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="success">
-                        <th>
-                            Sản phẩm
-                        </th>
-                        <th>
-                            Hình ảnh
-                        </th> 
-                        <th>
-                            Số lượng
-                        </th>
-                        <th>
-                             Giá bán
-                        </th>                
-                    </tr>
-                </thead>
-                <tbody>   
-                    @foreach($item->products as $product)
-                        <tr>
-                            <td>{{$product->name}}</td>
-                            <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$product->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
-                            <td>{{$product->quantity}}</td>            
-                            <td>{{$product->price}}</td>            
+        <div id="show-orderInfo-{{$item->id}}" style="display:none">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="success">
+                            <th>
+                                Sản phẩm
+                            </th>
+                            <th>
+                                Hình ảnh
+                            </th> 
+                            <th>
+                                Số lượng
+                            </th>
+                            <th>
+                                Giá bán
+                            </th>                
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>   
+                        @foreach($item->products as $product)
+                            <tr>
+                                <td>{{$product->name}}</td>
+                                <td> <img style="background:white" src="{{asset('backend/assets/img/products/'.$product->image)}}" class="rounded" alt="Ảnh" width="70" height="70"> </td>
+                                <td>{{$product->quantity}}</td>            
+                                <td>{{$product->price}}</td>            
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
         </div>
     </div>     
 </div>

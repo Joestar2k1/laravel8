@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="single-product-img">
-                    <img src="{{asset('frontend/assets/img/products/1.png')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/products/'.$item->image)}}" alt="">
                 </div>
             </div>
             <div class="col-md-7">
@@ -32,11 +32,9 @@
                     <h3>{{$item->name}}</h3>
                     <p class="single-product-pricing"><span>{{$item->unit}}</span>{{number_format($item->price)}}VND</p>
                     <p>{{$item->description}}.</p>
-                    <div class="single-product-form">
-                        <form action="index.html">
-                            <input type="number" placeholder="0">
-                        </form>
-                        <a href="" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</a>
+                    <div class="single-product-form">                     
+                            <input name="quantity" type="number" value="1" min="1" max="{{$item->stock}}"><br>
+                            <a href=''  class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</a>                    
                         <p><strong>Categories: </strong>Fruits, Organic</p>
                     </div>
                     <h4>Chia sẻ:</h4>

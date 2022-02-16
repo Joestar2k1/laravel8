@@ -46,8 +46,10 @@
                     <td>{{$item->NV}}</td>
                     <td>{{$item->fullName}}</td>
                     <td>{{$item->dateCreated}}</td>
-                    <td>{{$item->total}}</td>
+                    <td>{{number_format($item->total)}}VNĐ</td>
+                    <td>
                     <span>   <i class="fa fa-check" style="color:green" ></i>Ok</span>
+                    </td>
                   
                 </tr>
                 @endforeach
