@@ -20,19 +20,20 @@ class ProviderController extends Controller
     public function createProvider(Request $request)
     {
         $data = DB::table('providers')->paginate(4);
+
         $countPrd = Provider::all()->count();
         $date= Date('Ymd');
         $randomID = 'NCC' .$date. $countPrd;
 
         $providers = new Provider;
-
         $providers->id = $randomID;
+
         $providers->name = $request->provider_name;
         $providers->address = $request->address;
         $providers->phone = $request->phone;
         $providers->status = $request->status;
         $providers->save();
-        return view('admin.provider.index', compact('data'));
+        return redirect()->route('admin.provider.index');
     }
 
 

@@ -18,7 +18,7 @@ class CreateProvidersTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('address');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

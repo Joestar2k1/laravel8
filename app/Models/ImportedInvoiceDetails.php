@@ -10,10 +10,11 @@ class ImportedInvoiceDetails extends Model
     use HasFactory;
     protected $fillable = [
         'importedInvoiceID',
-        'sku',
+        'productID',
         'productName',
         'quantity',
         'price',
         'unit',
+        'image',
     ];
 }
