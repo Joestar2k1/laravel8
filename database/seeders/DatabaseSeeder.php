@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
             Product::class,
             ProviderSeeder::class,
             EmployeeSeeder::class,
-            Invoice::class,
+            InvoiceSeeder::class,
             Imported_Invoice_Seeder::class,
+            Imported_Invoice_Detail_Seeder::class,
             InvoiceDetails::class,
         ]);
     }

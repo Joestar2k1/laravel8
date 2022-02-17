@@ -45,11 +45,15 @@
                             <td> {{ $item->price }}</td>
                             <td> {{ $item->description }}</td>
 
-                            <td> <img style="background:white"
-                                    src="{{ asset('backend/assets/img/products/' . $item->image) }}"
-                                    class="rounded" alt="Ảnh" width="70" height="70"> </td>
+                            <td> 
+                                <img style="background:white"
+                                    src="{{ asset('backend/assets/img/products/'.$item->image) }}"
+                                    class="rounded" alt="Ảnh" width="70" height="70"> 
+                            </td>
                             <td> {{ $item->unit }}</td>
-                            <td> {{ $item->status }}</td>
+                            <td>  @if ( $item->status ==1)
+                                <span class="badge badge-pill badge-success">Còn hàng</span>
+                                @endif</td>
                             <td>
                                 <a class="btn btn-success" href="">Edit</a>
                             </td>
