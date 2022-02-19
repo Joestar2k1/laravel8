@@ -12,12 +12,11 @@
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('backend/assets/css/font-awesome-4.7.0/css/font-awesome.css') }}" />
+    @yield('css')
 
-
-    {{-- Css của Imported Invoice --}}
+  
     <link rel="stylesheet" href="{{ asset('backend/assets/css/imp_inv.css') }}">
 
-    {{-- Css của Imported Invoice Details --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/imp_inv_detail.css') }}">
 
 
@@ -54,7 +53,7 @@
     <script src="{{ asset('backend/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
     <script src="{{ asset('backend/assets/js/plugins/pace.min.js') }}"></script>
-
+    
 
 
 </body>

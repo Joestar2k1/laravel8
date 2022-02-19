@@ -255,7 +255,7 @@ nav ul li a .cart::after {
 }
 
 #step-1::after {
-    content: "Placed";
+    content: "Waiting";
 }
 
 #step-2::after {
@@ -264,16 +264,11 @@ nav ul li a .cart::after {
 }
 
 #step-3::after {
-    content: "Packed";
+    content: "Delivered";
 }
 
 #step-4::after {
-    content: "Shipped";
-}
-
-#step-5::after {
-    content: "Delivered";
-    left: -10px;
+    content: "Success";
 }
 
 .bg-purple {

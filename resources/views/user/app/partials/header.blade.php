@@ -22,7 +22,7 @@
 								<li><a href="about.html">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="{{route('user.profile')}}">
+										<a class="shopping-cart" href="{{route('user.order_management')}}">
 											<i class="fa fa-user"></i>
 										</a>
 										<a class="shopping-cart" href="{{route('user.cart')}}"><i class="fas fa-shopping-cart"></i></a>
@@ -31,7 +31,7 @@
 											<a class="shopping-cart" href="{{route('user.logout')}}">Đăng xuất</a>
 										@endif
 										@if(Session::get('customers') == null)
-											<a class="shopping-cart" href="cart.html">Đăng ký</a>
+											<a class="shopping-cart" href="{{route('user.register')}}">Đăng ký</a>
 											<a class="shopping-cart" href="{{route('user.login')}}">Đăng nhập</a>
 										@endif
 									</div>

@@ -16,14 +16,13 @@ class EmployeeController extends Controller
 
     public function createEmployee(Request $request){
         $data = DB::table('employees')->paginate(4);
-        $countPrd = Employee::all()->count();
+        $countEMP = Employee::all()->count();
         if($request->has('avatar')){
             $file= $request->avatar;
             $ext = $request->avatar->extension();//lấy đuôi file png||jpg
-            $file_name ='avatar'.$countPrd.'.'.$ext;
+            $file_name ='avatar'.$countEMP.'.'.$ext;
             $file->move(public_path('backend/assets/img/avatar'),$file_name);
         }
-        $countEMP = Employee::all()->count();
         $date= Date('Ymd');
         $randomID = 'EMP' .$date. $countEMP;
 

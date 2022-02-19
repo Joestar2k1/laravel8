@@ -30,10 +30,11 @@
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
 									<th class="product-remove"></th>
-									<th class="product-image">Product Image</th>
-									<th class="product-name">Name</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
+									<th class="product-image">Ảnh sản phẩm</th>
+									<th class="product-name">Tên sản phẩm</th>
+									<th class="product-price">Giá bán</th>
+									<th class="product-quantity">Số lượng</th>
+									<th class="product-total">Thành tiền</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,7 +44,7 @@
 								@if(Session::get('carts') != null)
 									@foreach(Session::get('carts') as $item)
 										<tr class="table-body-row">
-											<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+											<td class="product-remove"><a href="{{route('user.delete-cart',$item->id)}}"><i class="far fa-window-close"></i></a></td>
 											<td class="product-image">
 											<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
 											</td>
@@ -52,7 +53,7 @@
 											<td class="product-quantity">
 												<input type="number" placeholder="0" value="{{$item->quantity}}">
 											</td>
-											<!-- <td class="product-total">1</td> -->
+											<td class="product-total">{{number_format($item->subTotal)}}VNĐ</td>
 										</tr>
 									
 									@endforeach
@@ -67,33 +68,43 @@
 						<table class="total-table">
 							<thead class="total-table-head">
 								<tr class="table-total-row">
-									<th>Total</th>
-									<th>Price</th>
+									<th>Tổng</th>
+									<th>Giá tiền</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="total-data">
-									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
+									<td><strong>itemSubTotal:</strong></td>
+									<td>{{number_format(Session::get('carts_total')[0])}}VNĐ</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Shipping: </strong></td>
-									<td>$45</td>
+									<td><strong>Tiền ship: </strong></td>
+									<td>0 VNĐ</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Total: </strong></td>
-									<td>$545</td>
+									<td><strong>Tổng: </strong></td>
+									<td>{{number_format(Session::get('carts_total')[0])}}VNĐ</td>
 								</tr>
 							</tbody>
 						</table>
-						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="" class="boxed-btn black">Check Out</a>
-						</div>
+						@if(isset($error))
+							<div class="cart-buttons">
+								<a href="cart.html" class="boxed-btn">Cập nhật</a>
+								<a href="{{route('user.checkout')}}" class="boxed-btn black">Thanh toán</a>
+							</div>
+							<p><span style="color:red">Giỏ hàng bạn chưa có không thể thanh toán</span></p>
+						@endif
+						@if(!isset($error))
+							<div class="cart-buttons">
+								<a href="cart.html" class="boxed-btn">Cập nhật</a>
+								<a href="{{route('user.checkout')}}" class="boxed-btn black">Thanh toán</a>
+							</div>
+							
+						@endif
 					</div>
 
 					<div class="coupon-section">
-						<h3>Apply Coupon</h3>
+						<h3>Nhập mã khuyến mãi</h3>
 						<div class="coupon-form-wrap">
 							<form action="index.html">
 								<p><input type="text" placeholder="Coupon"></p>

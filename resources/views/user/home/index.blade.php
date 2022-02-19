@@ -75,7 +75,7 @@
 						</div>
 						<div class="content">
 							<h3>Miễn phí giao hàng</h3>
-							<p>Khi đơn hàng đạt $75</p>
+							<p>Khi đơn hàng từ 20.000đ trở lên</p>
 						</div>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Sản phẩm</span>chúng tôi</h3>
+						<h3><span class="orange-text">Sản phẩm</span>nổi bật</h3>
 					
 					</div>
 				</div>
@@ -141,7 +141,9 @@
 					</div>
 				</div>
 				@endforeach
-				{{$products->links()}}
+				<div style="margin:auto">
+					{{$products->links()}}
+				</div>
 				
 			</div>
 		</div>

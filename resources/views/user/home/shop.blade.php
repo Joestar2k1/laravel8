@@ -24,7 +24,8 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href=""><img src="{{asset('frontend/assets/img/products/'.$item->image)}}" alt=""></a>
+							<a href="{{route('user.home.details',$item->id)}}">
+								<img src="{{asset('frontend/assets/img/products/'.$item->image)}}" alt=""></a>
 						</div>
 						<h3>{{$item->name}}</h3>
 						<p class="product-price"><span>{{$item->unit}}</span> {{number_format($item->price)}} </p>

@@ -15,5 +15,13 @@ class HomeController extends Controller
         $products = DB::table('products')->paginate(6);
         return view('user.home.shop',compact('products'));
     }
-    
+    public function Search(Request $request){
+        if(isset($_GET['keyWord'])){
+            $searchText = $_GET['keyWord'];
+            $data = DB::table('products')->where('name','LIKE','%'.$searchText.'%')->get();
+            return view('admin.products.index',compact('data'));
+        }else{
+            return view('admin.dashboard');
+        }
+    }
 }
