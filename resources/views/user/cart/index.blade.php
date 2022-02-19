@@ -44,7 +44,7 @@
 								@if(Session::get('carts') != null)
 									@foreach(Session::get('carts') as $item)
 										<tr class="table-body-row">
-											<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+											<td class="product-remove"><a href="{{route('user.delete-cart',$item->id)}}"><i class="far fa-window-close"></i></a></td>
 											<td class="product-image">
 											<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
 											</td>

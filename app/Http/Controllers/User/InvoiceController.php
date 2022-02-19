@@ -13,7 +13,7 @@ class InvoiceController extends Controller
     public function createInvoice(Request $request){
         $date = Date('Ymd');
         $count = Invoice::All()->count();
-        $randomID = 'inv'.$date .'-'. $count+1;
+        $randomID = 'inv'.$date . $count+1;
         $invoices = new Invoice;
 
         $invoices->id = $randomID;
@@ -41,6 +41,6 @@ class InvoiceController extends Controller
         Session::forget('carts');
         Session::forget('carts_total');
         Session::put('carts',[]);
-        return redirect()->route('user.cart');
+        return redirect()->route('user.order_management');
     }
 }

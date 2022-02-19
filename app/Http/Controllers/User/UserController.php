@@ -49,7 +49,39 @@ class UserController extends Controller
     public function accountManagement(){
         return view('user.profile.account_manage');
     }
-    public function editUser(){
+    public function editUser(Request $request){
+        if($request->has('avatar')){
+            $file= $request->avatar;
+            $ext = $request->avatar->extension();//lấy đuôi file png||jpg
+            $file_name ='avatar'.Date('Ymd').'.'.$ext;
+            $file->move(public_path('frontend/assets/img/avaters'),$file_name);
+            DB::table('users')
+            ->where('id',Session::get('customers')->id)
+            ->update(
+                [
+                    'fullName' => $request->fullName,
+                    'phone' =>$request->phone,
+                    'username'=> $request->username,
+                    'address' =>$request->address,
+                    'avatar' =>$file_name,
+                ]
+            );
+        }else{
+            DB::table('users')
+            ->where('id',Session::get('customers')->id)
+            ->update(
+                [
+                    'fullName' => $request->fullName,
+                    'phone' =>$request->phone,
+                    'username'=> $request->username,
+                    'address' =>$request->address,
+                ]
+            );
+        }
+        Session::forget('customers');
+        $newUser = DB::table('users')->where('remember_token',$request->_token)->get();
+        Session::put('customers',$newUser[0]);
+      
         return redirect()->route('user.account_management');
     }
 }

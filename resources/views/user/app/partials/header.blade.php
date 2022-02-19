@@ -31,7 +31,7 @@
 											<a class="shopping-cart" href="{{route('user.logout')}}">Đăng xuất</a>
 										@endif
 										@if(Session::get('customers') == null)
-											<a class="shopping-cart" href="cart.html">Đăng ký</a>
+											<a class="shopping-cart" href="{{route('user.register')}}">Đăng ký</a>
 											<a class="shopping-cart" href="{{route('user.login')}}">Đăng nhập</a>
 										@endif
 									</div>

@@ -33,8 +33,11 @@
                     <p class="single-product-pricing"><span>{{$item->unit}}</span>{{number_format($item->price)}}VND</p>
                     <p>{{$item->description}}.</p>
                     <div class="single-product-form">                     
+                        <form action="{{route('user.addToCart',$item->id)}}" method="GET">
+                           
                             <input name="quantity" type="number" value="1" min="1" max="{{$item->stock}}"><br>
-                            <a href=''  class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</a>                    
+                            <button type="submit" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm giỏ hàng</button>
+                        </form>                    
                         <p><strong>Categories: </strong>Fruits, Organic</p>
                     </div>
                     <h4>Chia sẻ:</h4>

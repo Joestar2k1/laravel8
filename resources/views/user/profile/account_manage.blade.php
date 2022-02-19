@@ -75,7 +75,8 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Thiết lập hồ sơ</h4>
                 </div>
-                <form action="{{route('user.edit_account')}}" method="POST">
+                <form action="{{route('user.edit_account')}}" method="POST" enctype="multipart/form-data">
+               @csrf
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <label class="labels">Họ tên</label>
@@ -89,7 +90,7 @@
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Số điện thoại</label>
-                            <input type="number" class="form-control"name="phone" value="{{Session::get('customers')->phone}}">
+                            <input type="text" class="form-control"name="phone" value="{{Session::get('customers')->phone}}">
                         </div>
                         <div class="col-md-12">
                             <label class="labels">Địa chỉ </label>
@@ -100,12 +101,12 @@
                     <div class="row mt-3">
                         <div class="col-md-6">
                             <label class="labels">Ảnh</label>
-                            <input type="text" class="form-control" value="{{Session::get('customers')->avatar}}">
+                            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
                         </div>
                     
                     </div>
                     <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                        <button class="btn btn-primary profile-button" type="submit">Lưu thông tin</button>
                     </div>
                 </form>
             </div>

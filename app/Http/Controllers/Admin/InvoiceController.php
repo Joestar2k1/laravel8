@@ -7,16 +7,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\Invoice;
+use App\Models\Employee;
 class InvoiceController extends Controller
 {
     public function showInvoice(){
-         $invoices = DB::table('invoices')
-        ->join('employees','invoices.employeeID','=','employees.id')
-        ->join('users','invoices.userID','=','users.id')
-        ->select(DB::raw('employees.fullName as nv'),'users.fullName','invoices.id','invoices.dateCreated','total','invoices.status','invoices.shippingAddress','invoices.isPaid')
-        ->where('invoices.status',-1)->paginate(3) ;
+         $invoices =DB::table('invoices')->get();
         return view('admin.invoices.index',compact('invoices'));
     }
+
+    public function Search(Request $request){
+        dd(1);
+        $output = '';
+        $invoices =DB::table('invoices')->where('total','LIKE','%'.$request->keyword.'%')->get();
+        foreach($invoices as $item){
+            $output = '<tr>                        
+                            <td>'.$item->id.'</td>
+                            <td>'.$item->userID.'</td> 
+                            <td>'.$item->employeeID.'</td>
+                            <td>'.$item->dateCreated.'</td>   
+                            <td>'.$item->isPaid.'</td>
+                            <td>'.$item->total.'</td>                                       
+                    </tr>';
+        }
+        return response()->json($output);
+    }
+
+
     public function orderTracking(){
         $countWaitingToAccept = DB::table('invoices')
         ->join('users','invoices.userID','=','users.id')
@@ -79,17 +95,20 @@ class InvoiceController extends Controller
         ->select('status')->get();
         $int_status = $select_status_invoice[0]->status;
         if($int_status==2){
-            $update = DB::table('invoices')
+            DB::table('invoices')
             ->where('id',$id)
-            ->update(['status' => -1]);
+            ->update(
+                ['status' => -1,
+                'isPaid'=>1
+            ]);
         }else{      
             if($int_status == 0){
-                $update = DB::table('invoices')
+                 DB::table('invoices')
                 ->where('id',$id)
                 ->whereBetween('status',[0,4])
                 ->update(['status' => $int_status+1,'employeeID'=>Session::get('emp')->id]);
             }else{
-                $update = DB::table('invoices')
+                DB::table('invoices')
                 ->where('id',$id)
                 ->whereBetween('status',[0,4])
                 ->update(['status' => $int_status+1]);
