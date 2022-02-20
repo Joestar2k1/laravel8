@@ -22,6 +22,12 @@ Route::group(['prefix' => '/'], function () {
        Route::get('/account', [AccountController::class, 'loadAccount'])->
        name('admin.account');
 
+       Route::get('/account/lockUser/{id}', [AccountController::class, 'lockUser'])->
+       name('admin.account.lockUser');
+
+       Route::get('/account/unLockUser/{id}', [AccountController::class, 'unLockUser'])->
+       name('admin.account.unLockUser');
+       
        Route::get('/account/delete/{id}', [AccountController::class, 'deleteAccount'])->
        name('admin.account.delete');
 
@@ -56,7 +62,7 @@ Route::group(['prefix' => '/'], function () {
 
         //----------------------------------------------------------------------------------------
        Route::group(['prefix' => '/invoices'], function () {
-               Route::get('/', [InvoiceController::class, 'showInvoice'])->name('admin.invoice');
+
                Route::get('/details/{invoiceID}', [InvoiceController::class, 'detailsInvoice'])->name('admin.invoice.details');
 
                Route::get('/search', [InvoiceController::class, 'Search']);

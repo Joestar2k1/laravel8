@@ -43,7 +43,7 @@
                  <span class="app-menu__label">Sản phẩm</span>
             </a>
         </li>
-         <li class="treeview">
+        <li class="treeview">
              <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-laptop"></i>
                 <span class="app-menu__label">Quản lí hóa đơn</span>
@@ -57,17 +57,7 @@
                          <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
                     </a>
                 </li>
-                 <li>
-                     <a class="treeview-item" href="{{ route('admin.invoice') }}">
-                         <i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng
-                        </a>
                 </li>
-                <li>
-                     <a class="treeview-item" href=" {{ route('admin.imported_invoice.index') }}">
-                         <i class="icon fa fa-circle-o"></i>Hóa đơn nhập hàng
-                    </a>
-                </li>
-
              </ul>
          </li>
 
