@@ -14,7 +14,7 @@
     </ul>
   </div>
 </div>
-<a class="btn btn-primary" href=""><i class="fa fa-add">Tạo bài Viết</i> </a>
+<a class="btn btn-primary" href="{{route('admin.blog.create')}}"><i class="fa fa-add">Tạo bài Viết</i> </a>
 <div class="container-fluid">
         <div class="container mt-3">
             <table class="table table-striped">
@@ -51,7 +51,7 @@
                             <td> {{ $item->postDated }}</td>
                             <td> <img style="background:white"
 
-                                    src="{{ asset('backend/assets/img/latest-news/' . $item->image) }}" class="rounded"
+                                    src="{{ asset('backend/assets/img/latest-news/' . $item->image .'.jpg') }}" class="rounded"
                                     alt="Ảnh" width="70" height="70"> </td>
                             <td> <div class="btn-group">
                                 @if($item->status==-1)
@@ -64,7 +64,7 @@
                                         <i class="fa fa-lock"></i>
                                     </a>
                                 @endif
-                                <a class="btn btn-primary" href="">
+                                <a class="btn btn-primary" href="{{route('admin.blog.delete',$item->id)}}">
                                     <i class="fa fa-lg fa-trash"></i>
                                 </a>
                             </div></td>
@@ -74,7 +74,10 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $blogs->links() }}
+            <div style="margin:auto">
+                 {{ $blogs->links() }}
+            </div>
           
         </div>
+</div>
 @endsection

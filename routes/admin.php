@@ -135,9 +135,10 @@ Route::group(['prefix' => '/'], function () {
  
         Route::get('/unlockBlog/{id}', [BlogController::class, 'unLockBlog'])->name('admin.blog.unLockBlog');
         
-        // Route::get('/create', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index'); // dùng cho paginate
+        Route::get('/create-form', [BlogController::class, 'FormCreateBlog'])->name('admin.blog.create');
 
-        // Route::post('/create', [EmployeeController::class, 'createEmployee'])->name('admin.employee.createEmployee');
+        Route::post('/create-form', [BlogController::class, 'CreateBlog'])->name('admin.blog.create.post');
+        Route::get('/delete/{id}', [BlogController::class, 'DeleteBlog'])->name('admin.blog.delete');
 
     });
  });
