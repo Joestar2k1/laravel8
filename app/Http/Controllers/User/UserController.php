@@ -11,12 +11,16 @@ class UserController extends Controller
     public function orderManagement(){
         $carts = Session::get('carts');
         $countCart=0;
-        if(empty($carts)){
-        }else{
+        if(!empty($carts)){
             foreach($carts as $item){
                 $countCart++;
             }
         }
+        $countOrder = DB::table('invoices')
+        ->whereBetween('status',[0,2])
+        ->where('userID',Session::get('customers')->id)
+        ->count();
+       
         // $monthNow = Date('m');
         // $dateNow = Date('d');
         // $countInvoice = DB::table('invoices')
@@ -41,6 +45,7 @@ class UserController extends Controller
         } 
         return view('user.profile.order_manage',[
             'count' =>$countCart,
+            'countOrder' =>  $countOrder,
             'invoices'=>$getInvoice,
         ]);
     }

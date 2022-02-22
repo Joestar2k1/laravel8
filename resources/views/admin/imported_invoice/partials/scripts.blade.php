@@ -1,8 +1,8 @@
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> --}}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
 
-{{-- create imported invoice --}}
+
 <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -13,7 +13,7 @@
             var index = $("table tbody tr:last-child").index();
 
             var row = '<tr>' +
-                '<td><input type="text" class="form-control" name="importedinvoice_id" id="importedinvoice_id" disabled></td>' +
+                '<td><input type="text" class="form-control" name="imported_invoice_id" id="imported_invoice_id" disabled></td>' +
                 '<td> <select class = "form-select" id="emp_id"  name ="emp_id">   <option> {{ Session::get('empID_session') }}  </option> </select> </td > ' +
                 '<td><select class = "form-select" id="providerID"  name ="providerID"> @foreach ($providers_data as $item)  <option> {{ $item->id }}  </option> @endforeach </select> </td > ' +
                 '<td><input type="text" class="form-control" name="totalPrice" id="totalPrice"></td>' +

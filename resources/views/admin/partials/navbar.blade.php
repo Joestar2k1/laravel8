@@ -43,6 +43,12 @@
                  <span class="app-menu__label">Sản phẩm</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item" href="{{route('admin.blogs.index')}}">
+                 <i class="app-menu__icon fa fa-pie-chart"></i>
+                 <span class="app-menu__label">Tạo bài viết</span>
+            </a>
+        </li>
         <li class="treeview">
              <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-laptop"></i>

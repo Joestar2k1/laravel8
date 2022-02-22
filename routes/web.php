@@ -7,6 +7,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\InvoiceController;
+use App\Http\Controllers\User\BlogController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -46,6 +47,8 @@ Route::prefix('/')->group(function () {
 
     Route::post('home/cart/checkout',[InvoiceController::class,'createInvoice'])->name("user.create-invoice.post");
 
+    Route::get('home/blogs/',[BlogController::class,'index'])->name("user.blogs");
+    Route::get('home/blogs/view-details/{id}',[BlogController::class,'viewDetails'])->name("user.blogs.single");
 });
 
 ?>

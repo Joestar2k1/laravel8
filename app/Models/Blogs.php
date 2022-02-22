@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ImportedInvoice extends Model
+class Blogs extends Model
 {
     use HasFactory;
-    public $table = 'imported_invoices';
+    public $table = 'blogs';
     protected $fillable = [
+        'title',
+        'content',
+        'postDated',
+        'image',
         'employeeID',
-        'providerID',
-        'totalPrice',
-        'totalQuantity',
-        'importedDate',
-        'status',
-    ];
+    ] ;
 }
