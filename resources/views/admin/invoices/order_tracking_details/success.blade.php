@@ -1,17 +1,6 @@
 @extends('admin.app')
 @section('title') Đơn xác nhận @endsection
 @section('content')
-
-<script>
-    function showOrderInfo(str) {   
-        var orderInfo = document.getElementById('show-orderInfo-'+str);
-        if (orderInfo.style.display === "none") {
-            orderInfo.style.display = "block";
-        } else {
-            orderInfo.style.display = "none";
-        }
-    }   
-</script>
 <div class="app-title">
     <div>
       <h1>Hóa đơn / Theo dõi đơn hàng / Đơn thành công</h1>  
@@ -25,6 +14,26 @@
     </ul>
 </div>
 <div class="container-fluid">
+<div class="row">
+      <div class="col-md-4">
+        <div class="form-group has-search">
+       
+          <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Tìm kiếm">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="row">
+          <div class="form-group has-search">
+          
+            <input type="date" class="form-control" placeholder="Tìm theo ngày">
+          </div>
+          <span><button class="btn btn-primary"type="submit">Duyệt</button></span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container-fluid">
     <div class="container mt-3">
             <table class="table">
             <thead class="thead-dark">
@@ -36,6 +45,7 @@
                 <th scope="col">Ngày tạo hóa đơn</th>
                 <th scope="col">Tổng</th>
                 <th scope="col">Thanh toán</th>
+                <th scope="col">Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,13 +58,19 @@
                     <td>{{$item->dateCreated}}</td>
                     <td>{{number_format($item->total)}}VNĐ</td>
                     <td>
-                    <span>   <i class="fa fa-check" style="color:green" ></i>Ok</span>
+                        <span>   <i class="fa fa-check" style="color:green" ></i>Ok</span>
                     </td>
-                  
+                    <td>
+                    <div class="btn-group">
+                        <a class="btn btn-primary" href="{{route('admin.invoice.details',$item->id)}}"><i class="fa fa-eye"></i></a>
+                        <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-edit"></i></a>
+                    </div>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
             </table>
+            {{ $load->links() }}
     </div>
 </div>
 @endsection

@@ -10,10 +10,6 @@ use App\Models\Invoice;
 use App\Models\Employee;
 class InvoiceController extends Controller
 {
-    public function showInvoice(){
-         $invoices =DB::table('invoices')->get();
-        return view('admin.invoices.index',compact('invoices'));
-    }
 
     public function Search(Request $request){
         dd(1);
@@ -78,7 +74,7 @@ class InvoiceController extends Controller
         $invoices = DB::table('invoices')
         ->join('users','invoices.userID','=','users.id')
         ->where('invoices.id',$invoiceID)
-        ->select('users.fullName','invoices.id','invoices.dateCreated','invoices.total','invoices.status','invoices.shippingAddress','invoices.shippingPhone','invoices.shippingName','invoices.isPaid')->get();
+        ->select('users.fullName','invoices.*')->get();
 
         $invoice_details = DB::table('invoice_details')
         ->join('products','invoice_details.productID','=','products.id')
@@ -90,10 +86,11 @@ class InvoiceController extends Controller
 
 
     public function handleConfirmStatus($id){
-        $select_status_invoice =  DB::table('invoices')
+        $selectInvoice =  DB::table('invoices')
         ->where('id',$id)
-        ->select('status')->get();
-        $int_status = $select_status_invoice[0]->status;
+        ->get();
+        
+        $int_status = $selectInvoice[0]->status;
         if($int_status==2){
             DB::table('invoices')
             ->where('id',$id)
@@ -101,6 +98,7 @@ class InvoiceController extends Controller
                 ['status' => -1,
                 'isPaid'=>1
             ]);
+
         }else{      
             if($int_status == 0){
                  DB::table('invoices')
@@ -174,8 +172,9 @@ class InvoiceController extends Controller
         ->join('users','invoices.userID','=','users.id')
         ->join('employees','invoices.employeeID','=','employees.id')
         ->select('invoices.*','users.fullName',DB::Raw('employees.fullName as NV'))
+        ->orderBy('dateCreated','desc')
         ->where('invoices.status',-1)    
-       ->get();
+       ->paginate(7);
         return view('admin.invoices.order_tracking_details.success',compact('load'));
     }
 }

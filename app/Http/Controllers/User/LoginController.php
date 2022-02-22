@@ -31,11 +31,17 @@ class LoginController extends Controller
             'password' => $request->password
         ], $request->get('remember'));
         if ( $checkAuth) {
-            
+            $checkAccount = DB::table('users')
+            ->where('email',$request->email)
+            ->select('status')->get();
+            if($checkAccount[0]->status==-1){
+                return redirect()->route('user.login ');
+            }
             DB::table('users')
             ->where('email',$request->email)
             ->update([
-                'remember_token' => Session::get('_token')
+                'remember_token' => Session::get('_token'),
+                'status' => 1,
             ]);
             $user = DB::table('users')
             ->where('remember_token',$request->_token)->get();

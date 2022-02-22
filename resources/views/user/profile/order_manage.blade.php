@@ -68,7 +68,7 @@
                     <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png" alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Tổng đơn hàng</div>
-                            <div class="ms-auto number">2</div>
+                            <div class="ms-auto number">{{$countOrder}}</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-campus-recreation-university-nebraska-lincoln-30.png" alt="">

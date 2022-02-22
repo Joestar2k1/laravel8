@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Imported_Invoice_Controller;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\ProviderController;
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Support\Facades\Auth;
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [LoginController::class,'loginForm'])->name('admin.login.get');
@@ -22,6 +23,11 @@ Route::group(['prefix' => '/'], function () {
        Route::get('/account', [AccountController::class, 'loadAccount'])->
        name('admin.account');
 
+       Route::get('/account/lockUser/{id}', [AccountController::class, 'lockUser'])->
+       name('admin.account.lockUser');
+
+       Route::get('/account/unLockUser/{id}', [AccountController::class, 'unLockUser'])->name('admin.account.unLockUser');
+       
        Route::get('/account/delete/{id}', [AccountController::class, 'deleteAccount'])->
        name('admin.account.delete');
 
@@ -56,7 +62,7 @@ Route::group(['prefix' => '/'], function () {
 
         //----------------------------------------------------------------------------------------
        Route::group(['prefix' => '/invoices'], function () {
-               Route::get('/', [InvoiceController::class, 'showInvoice'])->name('admin.invoice');
+
                Route::get('/details/{invoiceID}', [InvoiceController::class, 'detailsInvoice'])->name('admin.invoice.details');
 
                Route::get('/search', [InvoiceController::class, 'Search']);
@@ -112,18 +118,28 @@ Route::group(['prefix' => '/'], function () {
 
      });
 //----------------------------------------------------------------------------------------
-Route::group(['prefix' => '/employee'], function(){
+    Route::group(['prefix' => '/employee'], function(){
+        Route::get('', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index');
 
-    // --------------------   Tạo nhân viên--------------------------------------------
-    Route::get('', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index');
+        Route::get('/create', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index'); // dùng cho paginate
 
-    Route::get('/create', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index'); // dùng cho paginate
-
-    Route::post('/create', [EmployeeController::class, 'createEmployee'])->name('admin.employee.createEmployee');
-
-   });
-
+        Route::post('/create', [EmployeeController::class, 'createEmployee'])->name('admin.employee.createEmployee');
 
     });
+
+    Route::group(['prefix' => '/blogs'], function(){
+        Route::get('', [BlogController::class, 'index'])->name('admin.blogs.index');
+
+        Route::get('/lockBlog/{id}', [BlogController::class, 'LockBlog'])->
+        name('admin.blog.LockBlog');
+ 
+        Route::get('/unlockBlog/{id}', [BlogController::class, 'unLockBlog'])->name('admin.blog.unLockBlog');
+        
+        // Route::get('/create', [EmployeeController::class, 'loadEmployee'])->name('admin.employee.index'); // dùng cho paginate
+
+        // Route::post('/create', [EmployeeController::class, 'createEmployee'])->name('admin.employee.createEmployee');
+
+    });
+ });
 
 });

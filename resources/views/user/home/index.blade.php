@@ -66,7 +66,6 @@
 	<!-- features list section -->
 	<div class="list-section pt-80 pb-80">
 		<div class="container">
-
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 					<div class="list-box d-flex align-items-center">
@@ -106,7 +105,48 @@
 		</div>
 	</div>
 	<!-- end features list section -->
+		<!-- product section -->
+		<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">Sản phẩm</span>bán chạy</h3>
+					
+					</div>
+				</div>
+			</div>
 
+			<div class="row">
+				@foreach($bestSeller as $item)
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="{{route('user.home.details',$item->id)}}">
+								<img src="{{asset('frontend/assets/img/products/'.$item->image)}}"alt="">
+							</a>
+						</div>
+						<h3>{{$item->name}}</h3>
+						<p class="product-price"><span>{{$item->unit}}</span>{{number_format($item->price)}}đ</p>
+						@if(Session::get('customers') == null)
+						<a href="{{route('user.login')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm giỏ hàng</a>
+						@endif
+						@if(Session::get('customers') != null)
+							<a href="{{route('user.addToCart',$item->id)}}" class="cart-btn">
+								<i class="fas fa-shopping-cart"></i> Thêm giỏ hàng
+							</a>
+						@endif
+					</div>
+				</div>
+				@endforeach
+				<!-- <div style="margin:auto">
+					{{$products->links()}}
+				</div> -->
+				
+			</div>
+		</div>
+	</div>
+	<!-- end product section -->
 	<!-- product section -->
 	<div class="product-section mt-150 mb-150">
 		<div class="container">
@@ -129,7 +169,7 @@
 							</a>
 						</div>
 						<h3>{{$item->name}}</h3>
-						<p class="product-price"><span>{{$item->unit}}</span>{{number_format($item->price)}}</p>
+						<p class="product-price"><span>{{$item->unit}}</span>{{number_format($item->price)}}đ</p>
 						@if(Session::get('customers') == null)
 						<a href="{{route('user.login')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm giỏ hàng</a>
 						@endif

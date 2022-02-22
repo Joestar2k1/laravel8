@@ -18,7 +18,7 @@
 								<li class="current-list-item"><a href="{{route('user.home')}}">Trang chủ</a>
 								</li>
 								<li><a href="{{route('user.home.shop')}}">Sản phẩm</a></li>
-								<li><a href="">Thông tin</a></li>
+								<li><a href="{{route('user.blogs')}}">Thông tin</a></li>
 								<li><a href="about.html">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">

@@ -30,10 +30,6 @@
                          <i class="icon fa fa-circle-o"></i>Theo dõi các đơn hàng
                     </a>
                 </li>
-                 <li>
-                     <a class="treeview-item" href="{{ route('admin.invoice') }}">
-                         <i class="icon fa fa-circle-o"></i>Hóa đơn bán hàng
-                        </a>
                 </li>
              </ul>
          </li>

@@ -10,9 +10,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h6 class="text-uppercase">Chi tiết hóa đơn bán hàng
-                            @if($item->status==1||$item->status==2||$item->status==3||$item->status==4)
-                             (Đơn hàng trong quá trình theo dõi)
-                            @endif
                         </h6>
                         <div class="billed"><span class="font-weight-bold text-uppercase">Cửa hàng:</span><span class="ml-1">Trái cây</span></div>
                         <div class="billed"><span class="font-weight-bold text-uppercase">Ngày lập:</span><span class="ml-1">{{$item->dateCreated}}</span></div>
@@ -86,7 +83,7 @@
                     </div>
                 </div>
                 <div class="text-right mb-3">
-                    <a  href="{{route('admin.invoice')}}" class="btn btn-primary">Quay lại</a>
+                    <a  href="{{route('admin.invoice.success')}}" class="btn btn-primary">Quay lại</a>
                 </div>
             </div>
             @endforeach
